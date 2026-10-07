@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FIT3179 Assignment 2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Vega & Vega-Lite Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+
+<body>
+
+    <!-- HERO -->
+    <header class="hero">
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+
+            <h1>
+                Australia's<br>
+                <span>Mammal Story</span>
+            </h1>
+
+            <p class="subtitle">
+                <i>How isolation shaped a unique<br>
+                community of mammals</i>
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- INTRODUCTION -->
+    <section class="intro">
+
+        <div class="intro-text">
+
+            <p class="lead">
+                <strong>Australia is home to one of the world's most
+                distinctive mammal communities.</strong>
+            </p>
+
+            <p>
+                Cut off from other landmasses, Australia's native 
+                species evolved in deep geographic solitude. This isolation 
+                shaped unique biological adaptations, distinct feeding 
+                behaviors, and localized survival strategies.
+            </p>
+
+        </div>
+
+
+        <!-- FUN FACT -->
+        <aside class="fact-card">
+
+            <div class="fact-icon">
+                🐨
+            </div>
+
+            <div class="fact-content">
+
+                <h2>Fun Fact</h2>
+
+                <button id="factButton">
+                    Reveal Fact
+                </button>
+
+                <p id="factText" class="hidden">
+                    Australia has more marsupial species than
+                    any other continent!
+                </p>
+
+            </div>
+
+        </aside>
+
+    </section>
+
+    <!-- SECTION 1 -->
+    <section id="section-1" class="story-section"> 
+        
+        <!-- Section Header -->
+        <div class="section-header">
+            <span class="section-number">01</span>
+            <h2>A MAMMAL COMMUNITY LIKE NO OTHER</h2>
+        </div>
+
+        <!-- Section Intro Narrative (Full-Width) -->
+        <p class="section-intro">
+            Australia's mammalian fauna is defined by extreme evolutionary 
+            divergence. While placental mammals dominate most global landmasses, 
+            tens of millions of years in isolation allowed marsupials and 
+            monotremes to flourish in ecological niches elsewhere held by placentals.
+        </p>
+
+        <!-- Invisible 2x2 Grid Layout -->
+        <div class="chart-grid grid-2x2">
+
+            <!-- Chart 1 Block -->
+            <div class="vis-block">
+                <div class="vis-header">
+                    <h3>01 / Species Richness by Order</h3>
+                    <p class="vis-description">Living native Australian mammal species grouped by taxonomic order using a Dendrogram.</p>
+                </div>
+                <div id="chart-groups" class="chart-container"></div>
+            </div>
+
+            <!-- Chart 2 Block -->
+            <div class="vis-block">
+                <div class="vis-header">
+                    <h3>02 / Living vs. Extinct (Last 500 Years)</h3>
+                    <p class="vis-description">Recent species extinctions heavily concentrated in Bandicoots and Rodents.</p>
+                </div>
+                <div id="chart-taxonomy" class="chart-container"></div>
+            </div>
+
+            <!-- Chart 3 Block -->
+            <div class="vis-block">
+                <div class="vis-header">
+                    <h3>03 / Global Endemism Leaderboard</h3>
+                    <p class="vis-description">Total native mammal species count vs. percentage endemic to each country.</p>
+                </div>
+                <div id="chart-world-comp" class="chart-container"></div>
+            </div>
+
+            <!-- Section Summary Block (Invisible Seamless Styling) -->
+            <div class="summary-block">
+                <span class="summary-badge">Key Takeaways</span>
+                <h3>An Evolutionary Fortress</h3>
+                <ul class="summary-list">
+                    <li>
+                        <strong>Unmatched Isolation:</strong> Over <strong>74.7% of Australia's 387 mammal species are strictly endemic</strong>, meaning they exist nowhere else on Earth.
+                    </li>
+                    <li>
+                        <strong>Marsupial Dominance:</strong> Native terrestrial mammals are overwhelmingly marsupials, spanning three major orders (Diprotodontia, Dasyuromorphia, and Peramelemorphia) that adapted to fill diverse ecological roles.
+                    </li>
+                    <li>
+                        <strong>Vulnerable Orders:</strong> Extinction over the last 500 years has disproportionately devastated ground-dwelling groups—<strong>42% of bandicoot species (Peramelemorphia)</strong> and <strong>17% of native rodents</strong> have been lost.
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

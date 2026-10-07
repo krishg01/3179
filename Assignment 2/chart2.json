@@ -1,0 +1,46 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#f7f6f0",
+  "width": "container",
+  "height": 260,
+  "data": {
+    "values": [
+      {"Order": "Diprotodontia", "Status": "Living", "Count": 87},
+      {"Order": "Diprotodontia", "Status": "Extinct", "Count": 10},
+      {"Order": "Chiroptera", "Status": "Living", "Count": 77},
+      {"Order": "Chiroptera", "Status": "Extinct", "Count": 1},
+      {"Order": "Dasyuromorphia", "Status": "Living", "Count": 69},
+      {"Order": "Dasyuromorphia", "Status": "Extinct", "Count": 5},
+      {"Order": "Rodentia", "Status": "Living", "Count": 54},
+      {"Order": "Rodentia", "Status": "Extinct", "Count": 11},
+      {"Order": "Peramelemorphia", "Status": "Living", "Count": 11},
+      {"Order": "Peramelemorphia", "Status": "Extinct", "Count": 8}
+    ]
+  },
+  "mark": "bar",
+  "encoding": {
+    "y": {"field": "Order", "type": "nominal", "title": null},
+    "x": {
+      "field": "Count",
+      "type": "quantitative",
+      "stack": "normalize",
+      "title": "Proportion (% Extinct vs Living)",
+      "axis": {"format": "%"}
+    },
+    "color": {
+      "field": "Status",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Living", "Extinct"],
+        "range": ["#168990", "#e63946"]
+      },
+      "legend": {"orient": "bottom"}
+    },
+    "tooltip": [
+      {"field": "Order", "type": "nominal"},
+      {"field": "Status", "type": "nominal"},
+      {"field": "Count", "type": "quantitative"}
+    ]
+  },
+  "config": {"background": "#ffffff", "view": {"stroke": "transparent"}}
+}

@@ -1,0 +1,122 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "width": 550,
+  "height": 300,
+  "autosize": {
+    "type": "fit-x",
+    "resize": true
+    },
+  "padding": {"top": 10, "bottom": 10, "left": 10, "right": 10},
+
+  "data": [
+    {
+      "name": "tree",
+      "values": [
+        {"id": "Mammalia", "parent": null, "group": "Root"},
+
+        {"id": "Monotremes", "parent": "Mammalia", "group": "Monotreme"},
+        {"id": "Monotremata (Platypus & Echidna)", "parent": "Monotremes", "group": "Monotreme", "species": 2},
+
+        {"id": "Marsupials", "parent": "Mammalia", "group": "Marsupial"},
+        {"id": "Diprotodontia (Kangaroos/Koalas)", "parent": "Marsupials", "group": "Marsupial", "species": 87},
+        {"id": "Dasyuromorphia (Quolls/Devils)", "parent": "Marsupials", "group": "Marsupial", "species": 69},
+        {"id": "Peramelemorphia (Bandicoots/Bilbies)", "parent": "Marsupials", "group": "Marsupial", "species": 11},
+        {"id": "Notoryctemorphia (Moles)", "parent": "Marsupials", "group": "Marsupial", "species": 2},
+        
+
+        {"id": "Placentals", "parent": "Mammalia", "group": "Placental"},
+        {"id": "Chiroptera (Bats)", "parent": "Placentals", "group": "Placental", "species": 77},
+        {"id": "Rodentia (Native Rodents)", "parent": "Placentals", "group": "Placental", "species": 54},
+        {"id": "Artiodactyla (Cetaceans)", "parent": "Placentals", "group": "Placental", "species": 48},
+        {"id": "Carnivora (Seals/Dingo)", "parent": "Placentals", "group": "Placental", "species": 11},
+        {"id": "Sirenia (Dugong)", "parent": "Placentals", "group": "Placental", "species": 1}
+      ],
+      "transform": [
+        {
+          "type": "stratify",
+          "key": "id",
+          "parentKey": "parent"
+        },
+        {
+          "type": "tree",
+          "method": "cluster",
+          "size": [{"signal": "height - 20"}, {"signal": "width - 50"}],
+          "as": ["y", "x", "depth", "children"]
+        }
+      ]
+    },
+    {
+      "name": "links",
+      "source": "tree",
+      "transform": [
+        { "type": "treelinks" },
+        {
+          "type": "linkpath",
+          "orient": "horizontal",
+          "shape": "diagonal"
+        }
+      ]
+    }
+  ],
+
+  "scales": [
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": ["Root", "Monotreme", "Marsupial", "Placental"],
+      "range": ["#172c35", "#0072B2", "#D55E00", "#4a7c59"]
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "path",
+      "from": {"data": "links"},
+      "encode": {
+        "update": {
+          "path": {"field": "path"},
+          "stroke": {"scale": "color", "field": "target.group"},
+          "strokeWidth": {"signal": "datum.target.children ? 2.5 : 1.2"},
+          "strokeOpacity": {"value": 0.65}
+        }
+      }
+    },
+    {
+      "type": "symbol",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "stroke": {"value": "#ffffff"},
+          "strokeWidth": {"value": 1.5}
+        },
+        "update": {
+          "x": {"field": "x"},
+          "y": {"field": "y"},
+          "size": {"signal": "datum.children ? 50 : 30"},
+          "fill": {"scale": "color", "field": "group"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "font": {"value": "DM Sans, sans-serif"},
+          "fontSize": {"value": 14}
+        },
+        "update": {
+          "x": {"field": "x"},
+          "y": {"field": "y"},
+          "dx": {"signal": "datum.children ? 30 : 8"},
+          "dy": {"signal": "datum.children ? -8 : 0"},
+          "align": {"signal": "datum.children ? 'right' : 'left'"},
+          "baseline": {"signal": "datum.children ? 'bottom' : 'middle'"},
+          "text": {"field": "id"},
+          "fontWeight": {"signal": "datum.children ? '700' : '400'"},
+          "fill": {"scale": "color", "field": "group"}
+        }
+      }
+    }
+  ]
+}
