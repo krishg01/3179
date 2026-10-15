@@ -5,42 +5,49 @@
   "height": 260,
   "data": {
     "values": [
-      {"Order": "Diprotodontia", "Status": "Living", "Count": 87},
-      {"Order": "Diprotodontia", "Status": "Extinct", "Count": 10},
-      {"Order": "Chiroptera", "Status": "Living", "Count": 77},
-      {"Order": "Chiroptera", "Status": "Extinct", "Count": 1},
-      {"Order": "Dasyuromorphia", "Status": "Living", "Count": 69},
-      {"Order": "Dasyuromorphia", "Status": "Extinct", "Count": 5},
-      {"Order": "Rodentia", "Status": "Living", "Count": 54},
-      {"Order": "Rodentia", "Status": "Extinct", "Count": 11},
-      {"Order": "Peramelemorphia", "Status": "Living", "Count": 11},
-      {"Order": "Peramelemorphia", "Status": "Extinct", "Count": 8}
+      {"Group": "Marsupial", "Order": "Diprotodontia", "Species": 87},
+      {"Group": "Marsupial", "Order": "Dasyuromorphia", "Species": 69},
+      {"Group": "Marsupial", "Order": "Peramelemorphia", "Species": 11},
+      {"Group": "Marsupial", "Order": "Notoryctemorphia", "Species": 2},
+      {"Group": "Placental", "Order": "Chiroptera", "Species": 77},
+      {"Group": "Placental", "Order": "Rodentia", "Species": 54},
+      {"Group": "Placental", "Order": "Artiodactyla", "Species": 48},
+      {"Group": "Placental", "Order": "Carnivora", "Species": 11},
+      {"Group": "Placental", "Order": "Sirenia", "Species": 1},
+      {"Group": "Monotreme", "Order": "Monotremata", "Species": 2}
     ]
   },
-  "mark": "bar",
+  "mark": {"type": "bar", "cornerRadiusEnd": 3, "tooltip": true},
   "encoding": {
-    "y": {"field": "Order", "type": "nominal", "title": null},
+    "y": {
+      "field": "Order",
+      "type": "nominal",
+      "sort": "-x",
+      "title": null,
+      "axis": {"labelFont": "DM Sans", "labelFontSize": 12}
+    },
     "x": {
-      "field": "Count",
+      "field": "Species",
       "type": "quantitative",
-      "stack": "normalize",
-      "title": "Proportion (% Extinct vs Living)",
-      "axis": {"format": "%"}
+      "title": "Number of Living Species",
+      "axis": {"titleFont": "DM Sans", "grid": true}
     },
     "color": {
-      "field": "Status",
+      "field": "Group",
       "type": "nominal",
       "scale": {
-        "domain": ["Living", "Extinct"],
-        "range": ["#168990", "#e63946"]
+        "domain": ["Marsupial", "Placental", "Monotreme"],
+        "range": ["#D55E00", "#4a7c59", "#0072B2"]
       },
-      "legend": {"orient": "bottom"}
-    },
-    "tooltip": [
-      {"field": "Order", "type": "nominal"},
-      {"field": "Status", "type": "nominal"},
-      {"field": "Count", "type": "quantitative"}
-    ]
+      "legend": {
+        "orient": "bottom",
+        "titleFont": "Space Grotesk",
+        "labelFont": "DM Sans"
+      }
+    }
   },
-  "config": {"background": "#ffffff", "view": {"stroke": "transparent"}}
+  "config": {
+    "background": "#ffffff",
+    "view": {"stroke": "transparent"}
+  }
 }

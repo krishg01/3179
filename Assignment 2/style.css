@@ -72,7 +72,6 @@ h1 {
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
 }
 
-/* Optional Script Accent in Title */
 h1 span.script-accent {
     font-family: "Pinyon Script", cursive;
     font-weight: 400;
@@ -244,7 +243,7 @@ h1 span.script-accent {
 }
 
 /* =========================================
-   SEAMLESS 2x2 GRID (NO CARDS)
+   SEAMLESS 2x2 GRID FOR 4 CHARTS
 ========================================= */
 
 .grid-2x2 {
@@ -254,8 +253,7 @@ h1 span.script-accent {
     width: 100%;
 }
 
-.vis-block, 
-.summary-block {
+.vis-block {
     background: transparent;
     border: none;
     box-shadow: none;
@@ -268,8 +266,7 @@ h1 span.script-accent {
     margin-bottom: 12px;
 }
 
-.vis-block h3, 
-.summary-block h3 {
+.vis-block h3 {
     font-family: "Montserrat", sans-serif;
     font-size: 15px;
     font-weight: 700;
@@ -297,49 +294,59 @@ h1 span.script-accent {
     height: auto !important;
 }
 
-/* SUMMARY BLOCK STYLING */
-.summary-block {
-    justify-content: flex-start;
+/* =========================================
+   MAP ROW WITH COMMENTARY
+========================================= */
+/* =========================================
+   STANDARD SECTION SPACING
+========================================= */
+
+.story-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px; /* Standardized top/bottom and side padding */
+    background: #f7f6f0;
+    border-bottom: 1px solid #8d938d; /* Optional: consistent section divider */
 }
 
-.summary-badge {
-    display: inline-block;
-    align-self: flex-start;
+/* Clear bottom margin on map-row inside section so padding remains balanced */
+.map-row {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 32px;
+    align-items: start;
+    width: 100%;
+    margin-bottom: 0; 
+}
+
+.map-row .chart-container {
+    min-height: 380px;
+}
+
+.map-commentary {
+    padding-top: 4px;
+}
+
+.map-commentary h4 {
+    margin-bottom: 8px;
     font-family: "Montserrat", sans-serif;
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #3b5042;
-    background: #e2e8f0;
-    padding: 4px 10px;
-    border-radius: 4px;
-    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #172c35;
 }
 
-.summary-list {
-    list-style: none;
-    margin-top: 12px;
-    padding: 0;
-}
-
-.summary-list li {
+.map-commentary p {
     font-family: "DM Sans", sans-serif;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.6;
     color: #334155;
-    margin-bottom: 14px;
-    padding-left: 20px;
-    position: relative;
 }
 
-.summary-list li::before {
-    content: "•";
-    color: #d97736;
-    font-size: 22px;
-    position: absolute;
-    left: 0;
-    top: -3px;
+/* Stack on tablets/phones */
+@media (max-width: 900px) {
+    .map-row {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* =========================================

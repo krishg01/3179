@@ -5,41 +5,61 @@
   "height": 260,
   "data": {
     "values": [
-      {"Country": "Indonesia", "Species": 789, "EndemicPct": 37.4},
-      {"Country": "Australia", "Species": 387, "EndemicPct": 74.7},
-      {"Country": "Brazil", "Species": 779, "EndemicPct": 32.9},
-      {"Country": "Madagascar", "Species": 257, "EndemicPct": 84.4},
-      {"Country": "Mexico", "Species": 580, "EndemicPct": 36.6}
+      {"Order": "Diprotodontia", "Status": "Living", "Count": 87},
+      {"Order": "Diprotodontia", "Status": "Extinct", "Count": 10},
+      {"Order": "Chiroptera", "Status": "Living", "Count": 77},
+      {"Order": "Chiroptera", "Status": "Extinct", "Count": 1},
+      {"Order": "Dasyuromorphia", "Status": "Living", "Count": 69},
+      {"Order": "Dasyuromorphia", "Status": "Extinct", "Count": 5},
+      {"Order": "Rodentia", "Status": "Living", "Count": 54},
+      {"Order": "Rodentia", "Status": "Extinct", "Count": 11},
+      {"Order": "Peramelemorphia", "Status": "Living", "Count": 11},
+      {"Order": "Peramelemorphia", "Status": "Extinct", "Count": 8}
     ]
   },
-  "layer": [
+  "transform": [
     {
-      "mark": {"type": "point", "filled": true, "size": 180},
-      "encoding": {
-        "x": {"field": "Species", "type": "quantitative", "title": "Total Mammal Species"},
-        "y": {"field": "EndemicPct", "type": "quantitative", "title": "% Endemic Species"},
-        "color": {
-          "condition": {
-            "test": "datum.Country === 'Australia'",
-            "value": "#e63946"
-          },
-          "value": "#a8b2b9"
-        },
-        "tooltip": [
-          {"field": "Country", "type": "nominal"},
-          {"field": "Species", "type": "quantitative"},
-          {"field": "EndemicPct", "type": "quantitative", "title": "% Endemic"}
-        ]
-      }
+      "window": [{"op": "sum", "field": "Count", "as": "TotalCount"}],
+      "groupby": ["Order"]
     },
     {
-      "mark": {"type": "text", "align": "left", "dx": 8, "dy": -2},
-      "encoding": {
-        "x": {"field": "Species", "type": "quantitative"},
-        "y": {"field": "EndemicPct", "type": "quantitative"},
-        "text": {"field": "Country", "type": "nominal"}
-      }
+      "calculate": "datum.Status === 'Extinct' ? datum.Count / datum.TotalCount : 0",
+      "as": "ExtinctRatio"
     }
   ],
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "field": "Order",
+      "type": "nominal",
+      "title": null,
+      "sort": {
+        "op": "max",
+        "field": "ExtinctRatio",
+        "order": "descending"
+      }
+    },
+    "x": {
+      "field": "Count",
+      "type": "quantitative",
+      "stack": "normalize",
+      "title": "Proportion (% Extinct vs Living)",
+      "axis": {"format": "%"}
+    },
+    "color": {
+      "field": "Status",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Living", "Extinct"],
+        "range": ["#168990", "#B42562"]
+      },
+      "legend": {"orient": "bottom"}
+    },
+    "tooltip": [
+      {"field": "Order", "type": "nominal"},
+      {"field": "Status", "type": "nominal"},
+      {"field": "Count", "type": "quantitative"}
+    ]
+  },
   "config": {"background": "#ffffff", "view": {"stroke": "transparent"}}
 }

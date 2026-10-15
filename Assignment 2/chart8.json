@@ -1,0 +1,49 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#f7f6f0",
+  "width": "container",
+  "height": 260,
+  "data": {"url": "MamFuncDat.txt", "format": {"type": "tsv"}},
+  "transform": [
+    {
+      "filter": "indexof(['Diprotodontia', 'Dasyuromorphia', 'Peramelemorphia', 'Monotremata', 'Notoryctemorphia', 'Notoryctidae', 'Macropodidae'], datum['MSWFamilyLatin']) >= 0 || datum['MSWFamilyLatin'] == 'Muridae' || datum['MSWFamilyLatin'] == 'Pteropodidae'"
+    },
+    {
+      "calculate": "datum['MSWFamilyLatin'] == 'Macropodidae' || datum['MSWFamilyLatin'] == 'Phascolarctidae' || datum['MSWFamilyLatin'] == 'Vombatidae' || datum['MSWFamilyLatin'] == 'Petauridae' || datum['MSWFamilyLatin'] == 'Pseudocheiridae' || datum['MSWFamilyLatin'] == 'Burramyidae' || datum['MSWFamilyLatin'] == 'Acrobatidae' || datum['MSWFamilyLatin'] == 'Tarsipedidae' ? 'Diprotodontia (Marsupials)' : datum['MSWFamilyLatin'] == 'Dasyuridae' || datum['MSWFamilyLatin'] == 'Myrmecobiidae' || datum['MSWFamilyLatin'] == 'Thylacinidae' ? 'Dasyuromorphia (Carnivorous Marsupials)' : datum['MSWFamilyLatin'] == 'Peramelidae' || datum['MSWFamilyLatin'] == 'Thylacomyidae' ? 'Peramelemorphia (Bandicoots)' : datum['MSWFamilyLatin'] == 'Tachyglossidae' || datum['MSWFamilyLatin'] == 'Ornithorhynchidae' ? 'Monotremata' : datum['MSWFamilyLatin'] == 'Muridae' ? 'Rodentia (Native Rodents)' : datum['MSWFamilyLatin'] == 'Pteropodidae' ? 'Chiroptera (Bats)' : 'Other Australian'",
+      "as": "Mammal_Group"
+    },
+    {
+      "calculate": "datum['ForStrat-Value'] == 'Ar' ? 'Arboreal (Canopy)' : datum['ForStrat-Value'] == 'G' ? 'Ground (Terrestrial)' : datum['ForStrat-Value'] == 'S' ? 'Scansorial (Climbing)' : datum['ForStrat-Value'] == 'A' ? 'Aerial' : datum['ForStrat-Value'] == 'M' ? 'Aquatic / Semi-Aquatic' : 'Other'",
+      "as": "Stratum"
+    }
+  ],
+  "mark": "rect",
+  "encoding": {
+    "x": {
+      "field": "Mammal_Group",
+      "type": "nominal",
+      "title": "Australian Taxonomic Group",
+      "axis": {"labelAngle": 20}
+    },
+    "y": {
+      "field": "Stratum",
+      "type": "nominal",
+      "title": "Foraging Stratum"
+    },
+    "color": {
+      "aggregate": "count",
+      "type": "quantitative",
+      "title": "Species Count",
+      "scale": {"scheme": "blues"}
+    },
+    "tooltip": [
+      {"field": "Mammal_Group", "type": "nominal", "title": "Group"},
+      {"field": "Stratum", "type": "nominal", "title": "Stratum"},
+      {"aggregate": "count", "type": "quantitative", "title": "Species Count"}
+    ]
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "axis": {"labelFontSize": 12, "titleFontSize": 13}
+  }
+}

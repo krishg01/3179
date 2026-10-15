@@ -111,50 +111,151 @@
         </p>
 
         <!-- Invisible 2x2 Grid Layout -->
-        <div class="chart-grid grid-2x2">
+        <div class="grid-2x2">
 
             <!-- Chart 1 Block -->
             <div class="vis-block">
                 <div class="vis-header">
-                    <h3>01 / Species Richness by Order</h3>
-                    <p class="vis-description">Living native Australian mammal species grouped by taxonomic order using a Dendrogram.</p>
-                </div>
-                <div id="chart-groups" class="chart-container"></div>
-            </div>
-
-            <!-- Chart 2 Block -->
-            <div class="vis-block">
-                <div class="vis-header">
-                    <h3>02 / Living vs. Extinct (Last 500 Years)</h3>
-                    <p class="vis-description">Recent species extinctions heavily concentrated in Bandicoots and Rodents.</p>
+                    <h3>01 / Australian Mammal Family Tree</h3>
+                    <p class="vis-description">Taxonomy overview by subclass and order.</p>
                 </div>
                 <div id="chart-taxonomy" class="chart-container"></div>
+                <p>This introduces the three major lineages of Australian
+                     mammals to establish a classification framework before 
+                     comparing species counts across individual orders.</p>
+            </div>
+
+            <!-- Chart Slot 2 -->
+            <div class="vis-block">
+                <div class="vis-header">
+                    <h3>02 / Living Australian Mammal Species by Order</h3>
+                    <p class="vis-description">Distribution of living 
+                        Australian mammal species grouped by evolutionary lineage.</p>
+                </div>
+                <div id="chart2" class="chart-container"></div>
+                <p>Marsupials dominate species count, 
+                    whereas monotremes remain scarce.</p>
             </div>
 
             <!-- Chart 3 Block -->
             <div class="vis-block">
                 <div class="vis-header">
-                    <h3>03 / Global Endemism Leaderboard</h3>
-                    <p class="vis-description">Total native mammal species count vs. percentage endemic to each country.</p>
+                    <h3>03 / Living vs. Extinct (Last 500 Years)</h3>
+                    <p class="vis-description">Recent species extinctions heavily concentrated in Bandicoots and Rodents.</p>
                 </div>
-                <div id="chart-world-comp" class="chart-container"></div>
+                <div id="chart-liv-ext" class="chart-container"></div>
+                <p>Extinction over the last 500 years has disproportionately 
+                    devastated ground-dwelling groups. <strong>42%</strong> of bandicoot species 
+                    and <strong>17%</strong> of native rodents have been lost.</p>
             </div>
 
-            <!-- Section Summary Block (Invisible Seamless Styling) -->
-            <div class="summary-block">
-                <span class="summary-badge">Key Takeaways</span>
-                <h3>An Evolutionary Fortress</h3>
-                <ul class="summary-list">
-                    <li>
-                        <strong>Unmatched Isolation:</strong> Over <strong>74.7% of Australia's 387 mammal species are strictly endemic</strong>, meaning they exist nowhere else on Earth.
-                    </li>
-                    <li>
-                        <strong>Marsupial Dominance:</strong> Native terrestrial mammals are overwhelmingly marsupials, spanning three major orders (Diprotodontia, Dasyuromorphia, and Peramelemorphia) that adapted to fill diverse ecological roles.
-                    </li>
-                    <li>
-                        <strong>Vulnerable Orders:</strong> Extinction over the last 500 years has disproportionately devastated ground-dwelling groups—<strong>42% of bandicoot species (Peramelemorphia)</strong> and <strong>17% of native rodents</strong> have been lost.
-                    </li>
-                </ul>
+            <!-- Chart 4 Block -->
+            <div class="vis-block">
+                <div class="vis-header">
+                    <h3>04 / Global Endemism Leaderboard</h3>
+                    <p class="vis-description">Total native mammal species count 
+                        vs. percentage endemic to each country.</p>
+                </div>
+                <div id="chart-world-comp" class="chart-container"></div>
+                <p>Over <strong>74.7% of Australia's 387 mammal species are strictly 
+                    endemic</strong>, meaning they exist nowhere else on Earth.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <hr style="width: 100%; height: 0.3px; background-color: black; border: none;">
+
+    <!-- SECTION 2 / MAP SECTION -->
+    <section id="section-2" class="story-section">
+
+        <!-- Section Header -->
+        <div class="section-header">
+            <span class="section-number">02</span>
+            <h2>MAMMAL OCCURRENCE DENSITY</h2>
+        </div>
+
+        <!-- Section Intro Narrative (Optional) -->
+        <p class="section-intro">
+            Spatial distribution of native mammal sightings across the continent.
+        </p>
+
+        <!-- Map Row -->
+        <div class="map-row">
+            <!-- Left: map (75%) -->
+            <div class="vis-block">
+                <div class="vis-header">
+                    <h3>05 / Mammal Occurrence Density</h3>
+                    <p class="vis-description">Recorded mammal occurrences per 0.25° grid cell across Australia.</p>
+                </div>
+                <div id="chart-density" class="chart-container"></div>
+            </div>
+
+            <!-- Right: commentary (25%) -->
+            <aside class="map-commentary">
+                <h4>What stands out</h4>
+                <p>Your thoughts on the map go here.</p>
+            </aside>
+        </div>
+
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="section-3" class="story-section"> 
+        
+        <!-- Section Header -->
+        <div class="section-header">
+            <span class="section-number">03</span>
+            <h2>HOW DO THEY LIVE?</h2>
+        </div>
+
+        <!-- Section Intro Narrative (Full-Width) -->
+        <p class="section-intro">
+            intro.
+        </p>
+
+        <!-- Invisible 2x2 Grid Layout -->
+        <div class="grid-2x2">
+
+            <!-- Chart 8: Heatmap -->
+            <div class="vis-block">
+                <div class="vis-header">
+                    <h3>08 / Habitat Preferences</h3>
+                    <p class="vis-description">Distribution of species counts across major Australian ecological biomes.</p>
+                </div>
+                <div id="chart-habitat" class="chart-container"></div>
+                <p>Text.</p>
+            </div>
+
+            <!-- Chart 9: Bar chart -->
+            <div class="vis-block">
+                <div class="vis-header">
+                    <h3>09 / Trophic & Dietary Niches</h3>
+                    <p class="vis-description">Proportion of herbivorous, carnivorous, and insectivorous species per group.</p>
+                </div>
+                <div id="chart-diet" class="chart-container"></div>
+                <p>text</p>
+            </div>
+
+            <!-- Chart 10: Violin plot-->
+            <div class="vis-block">
+                <div class="vis-header">
+                    <h3>10 / Body Mass Spectrum</h3>
+                    <p class="vis-description">Weight ranges mapped on a logarithmic scale (kg) across taxonomic orders.</p>
+                </div>
+                <div id="chart-mass" class="chart-container"></div>
+                <p>text</p>
+            </div>
+
+            <!-- Chart 11: Donut chart -->
+            <div class="vis-block">
+                <div class="vis-header">
+                    <h3>11 / Temporal Activity Cycles</h3>
+                    <p class="vis-description">Breakdown of nocturnal, diurnal, and crepuscular habits among native species.</p>
+                </div>
+                <div id="chart-activity" class="chart-container"></div>
+                <p>text</p>
             </div>
 
         </div>

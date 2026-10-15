@@ -1,0 +1,45 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#f7f6f0",
+  "width": "container",
+  "height": 260,
+  "data": {
+    "values": [
+      {"Country": "Indonesia", "Species": 789, "EndemicPct": 37.4},
+      {"Country": "Australia", "Species": 387, "EndemicPct": 74.7},
+      {"Country": "Brazil", "Species": 779, "EndemicPct": 32.9},
+      {"Country": "Madagascar", "Species": 257, "EndemicPct": 84.4},
+      {"Country": "Mexico", "Species": 580, "EndemicPct": 36.6}
+    ]
+  },
+  "layer": [
+    {
+      "mark": {"type": "point", "filled": true, "size": 180},
+      "encoding": {
+        "x": {"field": "Species", "type": "quantitative", "title": "Total Mammal Species"},
+        "y": {"field": "EndemicPct", "type": "quantitative", "title": "% Endemic Species"},
+        "color": {
+          "condition": {
+            "test": "datum.Country === 'Australia'",
+            "value": "#A70534"
+          },
+          "value": "#a8b2b9"
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "Species", "type": "quantitative"},
+          {"field": "EndemicPct", "type": "quantitative", "title": "% Endemic"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "text", "align": "left", "dx": 8, "dy": -2},
+      "encoding": {
+        "x": {"field": "Species", "type": "quantitative"},
+        "y": {"field": "EndemicPct", "type": "quantitative"},
+        "text": {"field": "Country", "type": "nominal"}
+      }
+    }
+  ],
+  "config": {"background": "#ffffff", "view": {"stroke": "transparent"}}
+}

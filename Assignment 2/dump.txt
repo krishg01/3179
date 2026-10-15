@@ -1,0 +1,68 @@
+<!--SECTION 2-->
+    <section id="section-2" class="story-section"> 
+        
+        <!-- Section Header -->
+        <div class="section-header">
+            <span class="section-number">02</span>
+            <h2>WHERE ARE AUSTRALIA'S MAMMALS?</h2>
+        </div>
+
+        <!-- Section Intro Narrative (Full-Width) -->
+        <p class="section-intro">
+            intro.
+        </p>
+
+        <!-- Invisible 2x2 Grid Layout -->
+        <div class="grid-2x2">
+
+            <!-- Chart 1 Block -->
+            <div class="vis-block">
+                <div class="vis-header">
+                    <h3>01 / Australian Mammal Family Tree</h3>
+                    <p class="vis-description">Taxonomy overview by subclass and order.</p>
+                </div>
+                <div id="chart-taxonomy" class="chart-container"></div>
+                <p>This introduces the three major lineages of Australian
+                     mammals to establish a classification framework before 
+                     comparing species counts across individual orders.</p>
+            </div>
+
+            <!-- Chart Slot 2 -->
+            <div class="vis-block">
+                <div class="vis-header">
+                    <h3>02 / Living Australian Mammal Species by Order</h3>
+                    <p class="vis-description">Distribution of living 
+                        Australian mammal species grouped by evolutionary lineage.</p>
+                </div>
+                <div id="chart2" class="chart-container"></div>
+                <p>Marsupials dominate species count, 
+                    whereas monotremes remain scarce.</p>
+            </div>
+
+            <!-- Chart 3 Block -->
+            <div class="vis-block">
+                <div class="vis-header">
+                    <h3>03 / Living vs. Extinct (Last 500 Years)</h3>
+                    <p class="vis-description">Recent species extinctions heavily concentrated in Bandicoots and Rodents.</p>
+                </div>
+                <div id="chart-liv-ext" class="chart-container"></div>
+                <p>Extinction over the last 500 years has disproportionately 
+                    devastated ground-dwelling groups. <strong>42%</strong> of bandicoot species 
+                    and <strong>17%</strong> of native rodents have been lost.</p>
+            </div>
+
+            <!-- Chart 4 Block -->
+            <div class="vis-block">
+                <div class="vis-header">
+                    <h3>04 / Global Endemism Leaderboard</h3>
+                    <p class="vis-description">Total native mammal species count 
+                        vs. percentage endemic to each country.</p>
+                </div>
+                <div id="chart-world-comp" class="chart-container"></div>
+                <p>Over <strong>74.7% of Australia's 387 mammal species are strictly 
+                    endemic</strong>, meaning they exist nowhere else on Earth.</p>
+            </div>
+
+        </div>
+
+    </section>

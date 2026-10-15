@@ -1,0 +1,46 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#f7f6f0",
+  "width": "container",
+  "height": 260,
+  "data": {"url": "MamFuncDat.txt", "format": {"type": "tsv"}},
+  "transform": [
+    {
+      "calculate": "datum['MSWFamilyLatin'] == 'Macropodidae' || datum['MSWFamilyLatin'] == 'Phascolarctidae' || datum['MSWFamilyLatin'] == 'Vombatidae' || datum['MSWFamilyLatin'] == 'Petauridae' || datum['MSWFamilyLatin'] == 'Pseudocheiridae' || datum['MSWFamilyLatin'] == 'Burramyidae' || datum['MSWFamilyLatin'] == 'Acrobatidae' || datum['MSWFamilyLatin'] == 'Tarsipedidae' ? 'Diprotodontia' : datum['MSWFamilyLatin'] == 'Dasyuridae' || datum['MSWFamilyLatin'] == 'Myrmecobiidae' ? 'Dasyuromorphia' : datum['MSWFamilyLatin'] == 'Peramelidae' || datum['MSWFamilyLatin'] == 'Thylacomyidae' ? 'Peramelemorphia' : datum['MSWFamilyLatin'] == 'Tachyglossidae' || datum['MSWFamilyLatin'] == 'Ornithorhynchidae' ? 'Monotremata' : datum['MSWFamilyLatin'] == 'Muridae' ? 'Native Rodents' : datum['MSWFamilyLatin'] == 'Pteropodidae' || datum['MSWFamilyLatin'] == 'Vespertilionidae' ? 'Bats' : 'Other'",
+      "as": "Mammal_Group"
+    },
+    {"filter": "datum['Mammal_Group'] != 'Other'"},
+    {
+      "calculate": "datum['BodyMass-Value'] / 1000",
+      "as": "BodyMass_kg"
+    },
+    {"filter": "datum['BodyMass_kg'] > 0"}
+  ],
+  "mark": {
+    "type": "boxplot",
+    "extent": "min-max",
+    "size": 30
+  },
+  "encoding": {
+    "x": {
+      "field": "Mammal_Group",
+      "type": "nominal",
+      "title": "Australian Mammal Group",
+      "axis": {"labelAngle": 20}
+    },
+    "y": {
+      "field": "BodyMass_kg",
+      "type": "quantitative",
+      "scale": {"type": "log"},
+      "title": "Body Mass (kg, Log Scale)"
+    },
+    "color": {
+      "field": "Mammal_Group",
+      "type": "nominal",
+      "legend": null
+    }
+  },
+  "config": {
+    "axis": {"labelFontSize": 12, "titleFontSize": 13}
+  }
+}

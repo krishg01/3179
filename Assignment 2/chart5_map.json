@@ -1,0 +1,182 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 520,
+  "background": "transparent",
+  "projection": {
+    "type": "mercator"
+  },
+  "layer": [
+    {
+      "description": "Land base: shows land with no/low records as soft grey instead of empty white",
+      "data": {
+        "url": "australia_states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e6e4d8",
+        "stroke": null
+      }
+    },
+    {
+      "description": "Density cells (0.1 degree, land only)",
+      "data": {
+        "url": "occurrence_density_0.10.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "lon": "number",
+            "lat": "number",
+            "density": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "calculate": "+datum.lon + 0.1",
+          "as": "lon2"
+        },
+        {
+          "calculate": "+datum.lat + 0.1",
+          "as": "lat2"
+        }
+      ],
+      "mark": {
+        "type": "rect",
+        "strokeWidth": 0.4,
+        "strokeJoin": "miter"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "lon2"
+        },
+        "latitude2": {
+          "field": "lat2"
+        },
+        "color": {
+          "field": "density",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [
+              0.1,
+              1,
+              5,
+              20,
+              100,
+              400
+            ],
+            "range": [
+              "#f0f5dc",
+              "#d4eab8",
+              "#9fd8b5",
+              "#52b9c4",
+              "#2a8bbd",
+              "#2455a4",
+              "#0c2461"
+            ]
+          },
+          "legend": {
+            "title": "Records per cell",
+            "orient": "bottom-left",
+            "offset": 8,
+            "titleFont": "DM Sans",
+            "labelFont": "DM Sans",
+            "titleFontSize": 12,
+            "labelFontSize": 11,
+            "gradientLength": 200
+          }
+        },
+        "stroke": {
+          "field": "density",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [
+              0.1,
+              1,
+              5,
+              20,
+              100,
+              400
+            ],
+            "range": [
+              "#f0f5dc",
+              "#d4eab8",
+              "#9fd8b5",
+              "#52b9c4",
+              "#2a8bbd",
+              "#2455a4",
+              "#0c2461"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "density",
+            "type": "quantitative",
+            "title": "Records (cell mean)",
+            "format": ",.1f"
+          },
+          {
+            "field": "lon",
+            "type": "quantitative",
+            "title": "Longitude",
+            "format": ".2f"
+          },
+          {
+            "field": "lat",
+            "type": "quantitative",
+            "title": "Latitude",
+            "format": ".2f"
+          }
+        ]
+      }
+    },
+    {
+      "description": "State and territory borders (also draws the coastline)",
+      "data": {
+        "url": "australia_states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "stroke": "#3d4a52",
+        "strokeWidth": 0.7,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "properties.name",
+            "type": "nominal",
+            "title": "State / territory"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "DM Sans"
+  }
+}
