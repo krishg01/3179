@@ -212,6 +212,39 @@ h1, h2, h3, h4 {
   display: block;
 }
 
+.vis-annotation {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  background: rgba(26, 38, 32, 0.03);
+  border-left: 3px solid var(--rust);
+  border-radius: 0 4px 4px 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.vis-annotation p { margin: 0; }
+
+.narrative__fig {
+  margin: 1.25rem 0;
+  width: 100%;
+}
+
+.narrative__img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  display: block;
+}
+
+.narrative__caption {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 0.4rem;
+  font-style: italic;
+  line-height: 1.4;
+}
 
 /* ====== INTRO ====== */
 .intro__grid {
@@ -309,15 +342,15 @@ h1, h2, h3, h4 {
 /* ====== MAP & CHART PLACEHOLDERS ====== */
 .map-ph, .chart-ph {
   background: var(--cream);
-  border: 1.5px dashed var(--border);
+  border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 2.5rem 2rem;
+  padding: 2rem 1.5rem;
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
   overflow: hidden;
 }
 .map-ph { min-height: 380px; }
@@ -334,15 +367,11 @@ h1, h2, h3, h4 {
   border-radius: 4px; pointer-events: none;
 }
 .map-ph__icon {
-  width: 52px; height: 52px; border-radius: 50%;
-  background: rgba(200, 127, 77, 0.1);
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 1.25rem; color: var(--rust);
-  position: relative; z-index: 1;
+  display: none;
 }
 .map-ph__label, .chart-ph__label {
   font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--rust); font-weight: 600; margin-bottom: 0.75rem;
+  color: var(--rust); font-weight: 600; margin-bottom: 0.35rem;
   position: relative; z-index: 1;
 }
 .map-ph__title, .chart-ph__title {
@@ -350,8 +379,8 @@ h1, h2, h3, h4 {
   margin-bottom: 0.5rem; position: relative; z-index: 1;
 }
 .map-ph__desc, .chart-ph__desc {
-  font-size: 0.87rem; color: var(--muted); max-width: 60ch;
-  position: relative; z-index: 1;
+  font-size: 0.87rem; color: var(--muted); max-width: 65ch;
+  position: relative; z-index: 1; margin-bottom: 0.5rem; line-height: 1.4;
 }
 
 /* ====== SPLIT LAYOUTS ====== */

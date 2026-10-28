@@ -84,7 +84,7 @@
           <p class="fact-card__text">The smallest mammal is barely larger than a bumblebee; 
             the largest is about as long as two and a half buses. A size range of roughly 1,000-fold 
             within a single class.</p>
-          <div class="fact-card__source">Source: Mammalia, Atlas of Living Australia</div>
+          <div class="fact-card__source">Source: Mammal Diversity Database (MDD v1.12)</div>
         </article>
 
         <!-- Fact card - Lifespan -->
@@ -109,7 +109,7 @@
           <p class="fact-card__text">Mammal lifespans vary more than a hundredfold. A shrew 
             may live two years; a bowhead whale can survive past two centuries — a window into 
             the extraordinary diversity of mammalian strategies.</p>
-          <div class="fact-card__source">Source: Mammalia, Atlas of Living Australia</div>
+          <div class="fact-card__source">Source: AnAge Database (genomics.senescence.info)</div>
         </article>
       </div>
       <div>
@@ -134,7 +134,7 @@
         <div class="stat__label">Mammal species in Australia</div>
       </div>
       <div class="stat">
-        <div class="stat__num"><span>74.7</span>%</div>
+        <div class="stat__num">74.7<span>%</span></div>
         <div class="stat__label">Endemic to Australia</div>
       </div>
       <div class="stat">
@@ -150,6 +150,11 @@
         <p class="chart-ph__desc">Australia ranks 20th in the
           world for mammal species; here it is set against the top five.</p>
       <div id="vis-lollipop" class="vis-frame"></div>
+      <div class="vis-annotation">
+          <p>Australia does not have the most mammal species: tropical countries 
+            such as Indonesia and Brazil have far more. What sets it apart is 
+            how many of them are found nowhere else.</p>
+      </div>
     </div>
       <div class="chart-ph">
         <div class="chart-ph__label">Chart idiom · Scatterplot</div>
@@ -158,6 +163,10 @@
           in endemism. Further right = more mammal species; higher = more of 
           them found nowhere else.</p>
       <div id="vis-scatter" class="vis-frame"></div>
+      <div class="vis-annotation">
+          <p>Large mainland countries such as Brazil and Mexico share many species 
+            with their neighbours, so a smaller share is unique to them.</p>
+      </div>
     </div>
     </div>
 
@@ -174,6 +183,13 @@
       <p class="map-ph__desc">A world choropleth of mammal endemism by 
         country. Australia, Madagascar and the Philippines sit at the top of the leaderboard.</p>
     <div id="vis-choropleth" class="vis-frame"></div>
+    <div class="vis-annotation">
+        <p><strong>Why do islands lead?</strong> Species that cannot cross an ocean 
+          cannot spread, and little can easily reach them. Over millions of years 
+          island populations diverge from their relatives elsewhere and become unique. 
+          That is why Australia, Madagascar and the Philippines top the map, 
+          while countries on large connected landmasses score lower.</p>
+    </div>
     </div>
   </div>
 </section>
@@ -192,18 +208,25 @@
     <div class="split split--asymmetric">
       <div class="narrative">
         <h3>The strangest mammals on Earth</h3>
-        <p>Of the <strong>five living monotreme species</strong> in the world, 
-          four are found in Australia or New Guinea. Two of the three great 
-          lineages of mammals — the egg-laying <em>Prototheria</em> and the 
-          pouched <em>Metatheria</em> — are almost entirely Australasian. 
-          Only one of them still survives outside the region.</p>
-        <p>Where most of the world's mammals gave up the pouch and the egg, 
-          Australian mammals turned both into evolutionary advantages. 
-          The platypus, echidna, kangaroo, wombat and koala are the products 
-          of an estimated <strong>120-million-year isolation</strong> from 
-          the rest of the world's mammal lineages.</p>
-        <p class="highlight">Australia's mammals didn't merely survive 
-          isolation — they built a different, stranger biology within it.</p>
+        <p>All <strong>five living monotreme species</strong> in the world 
+          (the platypus and four species of echidna) are found only in Australia 
+          and New Guinea. Monotremes and marsupials represent two of the three 
+          great mammal lineages; about two-thirds of marsupial species, 
+          and all monotremes, live in Australasia.</p>
+        <p>Where most of the world's mammals gave up the pouch and the egg, Australian mammals 
+          turned both into evolutionary adaptations. The platypus, echidna, kangaroo, 
+          wombat and koala evolved in isolation over tens of millions of years after 
+          Australia separated from Antarctica (about 35-45 million years ago).</p>
+          <p class="highlight">Australia's mammals didn't merely survive isolation — they 
+          built a different, stranger biology within it.</p>
+          <figure class="narrative__fig">
+            <img src="https://www.thoughtco.com/thmb/OqANUu4U3tNL1Uo2n19uX6PzbM8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/red_kangaroo-24c18ab08dc145f1a798abd4b820390a.jpg" 
+                alt="Eastern grey kangaroo and Australian native wildlife" 
+                class="narrative__img">
+            <figcaption class="narrative__caption">
+              Australian marsupials span dramatic size ranges — from tiny planigales to giant red kangaroos.
+            </figcaption>
+          </figure>
       </div>
 
       <div class="chart-ph">
@@ -214,6 +237,13 @@
           body masses spread wider than monotremes but stop short of 
           the placental giants.</p>
       <div id="vis-violin" class="vis-frame"></div>
+      <div class="vis-annotation">
+          <p>The wider the shape, the more species at that body mass. 
+            Marsupials stretch from mouse-sized (a few grams) to kangaroo-sized 
+            (tens of kilograms), with peaks at different sizes. Monotremes 
+            comprise only five species and are shown as distinct points 
+            rather than a continuous distribution.</p>
+      </div>
     </div>
     </div>
 
@@ -225,9 +255,15 @@
         </svg>
       </div>
       <div class="map-ph__label">Australia · Bin Map</div>
-      <h3 class="map-ph__title">Monotreme sighting richness by state</h3>
-      <p class="map-ph__desc">Monotremes are indigenious to Australia and New Guinea, making them.</p>
+      <h3 class="map-ph__title">Monotreme sighting density across Australia</h3>
+      <p class="map-ph__desc">Monotremes are indigenous to Australia and New Guinea — 
+        no egg-laying mammal lives anywhere else on Earth. Each square counts recorded sightings.</p>
       <div id="vis-binmap" class="vis-frame"></div>
+      <div class="vis-annotation">
+        <p>Platypuses require permanent fresh water and are restricted to eastern and Tasmanian 
+          rivers, while short-beaked echidnas range across nearly the entire continent. 
+          Sighting distributions reflect where human observers record data as much as actual animal density.</p>
+      </div>
     </div>
 
     <!-- IMAGE BAND -->
@@ -245,22 +281,38 @@
   <div class="container">
     <div class="section-heading">
       <div class="section-heading__num">03</div>
-      <h2 class="section-heading__title">What they eat &amp; where they live</h2>
-      <p class="section-heading__sub">Australia's mammals occupy unusual dietary niches — many with no equivalent elsewhere. Marsupial carnivores, nectar specialists and body-mass outliers reveal a diet ecology all their own.</p>
+      <h2 class="section-heading__title">How they feed, move &amp; sleep</h2>
+      <p class="section-heading__sub">Australia's mammals fill ecological roles seen nowhere else: 
+        tree-dwelling leaf-eaters, flying nectar specialists, and nocturnal burrowers.</p>
     </div>
 
     <div class="split">
       <div class="chart-ph">
         <div class="chart-ph__label">Chart idiom · Heatmap</div>
-        <h3 class="chart-ph__title">Diet × locomotion adjacency matrix</h3>
-        <p class="chart-ph__desc">Heatmap of diet guild (columns) vs. locomotion mode (rows) for all Australian species — where do the truly unusual combinations cluster?</p>
+        <h3 class="chart-ph__title">What they eat and how they get around</h3>
+        <p class="chart-ph__desc">Heatmap of diet category vs. movement mode for Australian mammal 
+          species. Each square counts species sharing that combination.</p>
         <div id="vis-heatmap" class="vis-frame"></div>
+        <div class="vis-annotation">
+          <p><strong>Key ecological patterns:</strong> The aerial guild consists mainly of 
+            insectivorous bats and frugivorous flying-foxes. Ground-dwelling species are 
+            dominated by insect-eaters (dunnarts, bandicoots, echidnas) and plant-eaters 
+            (kangaroos, wallabies). Tree-dwelling herbivores like the koala adapt to low-nutrient 
+            eucalyptus foliage, a dietary niche few other mammals can exploit.</p>
+        </div>
       </div>
       <div class="chart-ph">
         <div class="chart-ph__label">Chart idiom · Dumbbell Chart</div>
         <h3 class="chart-ph__title">Day vs. night activity</h3>
-        <p class="chart-ph__desc">Proportion of diurnal (active during day) vs. nocturnal (active during night) species across Australian families.</p>
+        <p class="chart-ph__desc">Proportion of diurnal (active during day) vs. nocturnal 
+          (active during night) species across Australian families.</p>
         <div id="vis-dumbbell" class="vis-frame"></div>
+        <div class="vis-annotation">
+          <p><strong>Why nocturnal dominance?</strong> Much of Australia is arid and hot. 
+            Sheltering in burrows or tree hollows by day and foraging at night conserves 
+            vital water. Daytime specialists such as the numbat (which feeds on daytime-active termites) 
+            and the musky rat-kangaroo represent rare evolutionary exceptions.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -270,22 +322,39 @@
   <div class="container">
     <div class="section-heading">
       <div class="section-heading__num">04</div>
-      <h2 class="section-heading__title">Let's compare to other taxons</h2>
-      <p class="section-heading__sub">Australia's mammals occupy unusual dietary niches — many with no equivalent elsewhere. Marsupial carnivores, nectar specialists and body-mass outliers reveal a diet ecology all their own.</p>
+      <h2 class="section-heading__title">How Australia compares with other animals</h2>
+      <p class="section-heading__sub">Mammals are not the only Australian animals at risk. Set 
+        beside birds, reptiles, frogs, fish and plants, how fast has the threatened species list 
+        grown, and where do mammals sit?</p>
     </div>
 
     <div class="split">
         <div class="chart-ph">
             <div class="chart-ph__label">Chart idiom · Line Chart (Time Series)</div>
-            <h3 class="chart-ph__title">EPBC Act Listed Species Over Time (2000-2020)</h3>
-            <p class="chart-ph__desc">Cumulative net change in listed species since 2000, highlighting Mammals against all other taxonomic groups.</p>
+            <h3 class="chart-ph__title">Australia's threatened species list (2000-2020)</h3>
+            <p class="chart-ph__desc">Cumulative net change in species listed under the 
+              national Environment Protection and Biodiversity Conservation (EPBC) Act since 2000.</p>
         <div id="vis-line" class="vis-frame"></div>
+        <div class="vis-annotation">
+              <p><strong>Understanding listing trends:</strong> A species is added to the EPBC 
+                Act when experts assess it to be at elevated risk. Surges in listed counts reflect 
+                new ecological declines, intensified survey efforts, or major batch assessments 
+                (such as the sudden botanical additions in 2002 and 2009).</p>
+            </div>
         </div>
+
         <div class="chart-ph">
             <div class="chart-ph__label">Chart idiom · Parallel Coordinates</div>
             <h3 class="chart-ph__title">EPBC Listed Species by Threat Category (2020)</h3>
-            <p class="chart-ph__desc">Profiles of animal species counts across conservation categories highlighting Mammals.</p>
+            <p class="chart-ph__desc">Distribution of species counts across official conservation 
+              threat categories for major taxonomic groups.</p>
         <div id="vis-parallel" class="vis-frame"></div>
+        <div class="vis-annotation">
+              <p><strong>Threat category definitions:</strong> Categories progress by severity — 
+                <em>Conservation Dependent</em> (survives only with active management), <em>Vulnerable</em> 
+                (high risk of endangerment), <em>Endangered</em> (very high risk of extinction in the wild), 
+                and <em>Critically Endangered</em> (extremely high risk of extinction).</p>
+        </div>
         </div>
     </div>
   </div>
@@ -297,22 +366,42 @@
     <div class="section-heading">
       <div class="section-heading__num">05</div>
       <h2 class="section-heading__title">Under pressure</h2>
-      <p class="section-heading__sub">Endemism cuts both ways. Australia's mammals are unique — and uniquely vulnerable. Over 16% of species are threatened, and 35 have gone extinct in the last 500 years.</p>
+      <p class="section-heading__sub">Endemism cuts both ways. Australia's mammals are unique — 
+        and uniquely vulnerable. 
+        Around 9% of native species (35 species) have gone extinct since European settlement, 
+        and 63 are currently listed as threatened.</p>
     </div>
 
     <div class="split split--asymmetric">
       <div class="chart-ph">
         <div class="chart-ph__label">Chart idiom · Normalised Bar chart</div>
-        <h3 class="chart-ph__title">Decline of Australia's orders</h3>
-        <p class="chart-ph__desc">The ratio of extinct-to-living species by mammal order — visualising which groups have suffered most.</p>
+        <h3 class="chart-ph__title">Which mammal groups have lost the most species?</h3>
+        <p class="chart-ph__desc">Share of each major Australian mammal order classified as living vs. 
+          extinct since European settlement.</p>
         <div id="vis-norm-bar" class="vis-frame"></div>
+        <div class="vis-annotation">
+          <p><strong>Vulnerability factors:</strong> European settlement introduced invasive 
+            predators (feral cats and red foxes) and altered fire regimes. Extinctions 
+            concentrated among ground-dwelling mammals within the 35 g to 5.5 kg 'critical weight range' 
+            (such as bandicoots and native rodents). Flying mammals (bats) suffered almost no extinctions.</p>
+        </div>
       </div>
 
       <div class="narrative">
         <h3>The cost of being different</h3>
-        <p>Australia has the highest mammal extinction rate of any continent. Fifteen per cent of its mammal species have disappeared in just the last 500 years — and a further 63 are currently listed as threatened.</p>
-        <p>The causes are well documented: introduced predators, land-clearing, altered fire regimes, and a changing climate. But the scale is a direct consequence of endemism — the more special a species is, the fewer places it can survive.</p>
-        <p class="highlight">Preserving Australia's mammals means preserving the very strangeness that makes them worth studying.</p>
+        <p>Australia has experienced the highest modern mammal extinction rate of any continent. 
+          35 species (~9% of native mammal fauna) have disappeared in the last 500 years, and a 
+          further 63 are currently listed as threatened (Woinarski et al., 2015).</p>
+        <p>Primary drivers include introduced predators, land clearing, and altered fire regimes. 
+          Endemism amplifies these risks — a species restricted to a single geographic area can be 
+          devastated by localized habitat loss or predator expansion.</p>
+        <p class="highlight">Preserving Australia's mammals means preserving the very strangeness 
+          that makes them worth studying.</p>
+        <figure class="narrative__fig">
+            <img src="https://www.vanztravel.com/wp-content/uploads/2024/06/Screenshot-2024-06-12-at-10.38.05-1024x563.png" 
+                alt="Cute mammal wildlife" 
+                class="narrative__img">
+          </figure>
       </div>
     </div>
 
@@ -325,9 +414,15 @@
           </svg>
         </div>
         <div class="map-ph__label">Australia · Proportional Symbol Map</div>
-        <h3 class="map-ph__title">Threatened species density</h3>
-        <p class="map-ph__desc">Dot-density map: one dot per threatened native mammal record, overlaid on IBRA bioregions.</p>
+        <h3 class="map-ph__title">Where threatened mammals are recorded</h3>
+        <p class="map-ph__desc">Proportional symbol map: circle size indicates the number of 
+          threatened native mammal sighting records at each locality.</p></p>
         <div id="vis-prop-symbol" class="vis-frame"></div>
+        <div class="vis-annotation">
+        <p>Threatened mammal records cluster heavily in south-eastern and south-western Australia. 
+          These patterns reflect areas of historic land clearing as well as higher human observer density near 
+          major metropolitan centers and national parks.</p>
+      </div>
       </div>
       
 

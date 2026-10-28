@@ -1,6 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  
   "background": "rgba(247, 243, 234, 0.72)",
   "width": "container",
   "height": 520,
@@ -261,7 +260,7 @@
             },
             {
               "Country": "C\u00f4te d'Ivoire",
-              "PctEndemic": 70.0,
+              "PctEndemic": 0.07,
               "Species": 278,
               "Endemic": 2,
               "PctThreatened": "11.20%"
@@ -1534,8 +1533,79 @@
       }
     ]
   }
-    }
-  ]
+    },
+  {
+    "data": {
+      "values": [
+        {
+          "lon_start": 134, "lat_start": -25,
+        "lon_end": 180, "lat_end": -5,
+        "align": "left",
+        "baseline": "center",
+        "show_line": false,
+          "text": ["Australia and the Phillipines", 
+          "are isolated island landmasses",
+        "so their mammals evolved apart",
+      "from the rest of the world."]
+        },
+        {
+          "lon_start": 47, "lat_start": -20,
+          "lon_end": 45, "lat_end": -40,
+          "align": "left",
+          "baseline": "top",
+          "text": ["Madagascar has been", 
+          "an island for of millions", 
+          "of years. Its mammals", 
+          "lemurs, tenrecs) evolved alone."]
+        },
+        {
+          "lon_start": -50, "lat_start": -5,
+          "lon_end": -110, "lat_end": -15,
+          "align": "left",
+          "baseline": "top",
+          "text": ["Big mainland countries (Brazil,",
+        "China, USA) share species with their",
+      "neightbours, so a smaller share",
+    "is unique to them"]
+        }
+      ]
+    },
+    "layer": [
+      {
+        "transform": [
+          { "filter": "datum.show_line == true" }
+        ],
+        "mark": {
+          "type": "rule",
+          "color": "#A34A2A",
+          "strokeWidth": 1.2,
+          "strokeDash": [3, 3]
+        },
+        "encoding": {
+          "longitude": {"field": "lon_start", "type": "quantitative"},
+          "latitude": {"field": "lat_start", "type": "quantitative"},
+          "longitude2": {"field": "lon_end", "type": "quantitative"},
+          "latitude2": {"field": "lat_end", "type": "quantitative"}
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "dx": 5,
+          "dy": -4,
+          "fontSize": 11,
+          "fontStyle": "italic",
+          "fill": "#1A2620"
+        },
+        "encoding": {
+          "longitude": {"field": "lon_end", "type": "quantitative"},
+          "latitude": {"field": "lat_end", "type": "quantitative"},
+          "text": {"field": "text", "type": "nominal"}
+        }
+      }
+    ]
+  }
+]
   ,
   "config": {
     "view": {

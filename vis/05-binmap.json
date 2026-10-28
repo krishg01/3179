@@ -75,6 +75,75 @@
           }
         ]
       }
+    },
+    
+    {
+      "data": {
+        "values": [
+          {
+            "lon_start": 146, "lat_start": -35,
+            "lon_end": 160, "lat_end": -35,
+            "align": "left",
+            "baseline": "middle",
+            "show_line": false,
+            "text": [
+              "Most sightings are in the south-east,",
+              "where most Australians live and where",
+              "rivers suit platypus. More observers",
+              "= more records."
+            ]
+          },
+          {
+            "lon_start": 122, "lat_start": -25,
+            "lon_end": 110, "lat_end": -15,
+            "align": "right",
+            "baseline": "middle",
+            "show_line": false,
+            "text": [
+              "Blank space does not mean absent.",
+              "Few people live here, and short-beaked",
+              "echidnas range across almost the",
+              "whole continent."
+            ]
+          }
+        ]
+      },
+      "layer": [
+        {
+           "transform": [
+          { "filter": "datum.show_line == true" }
+          ],
+          "mark": {
+            "type": "rule",
+            "color": "#A34A2A",
+            "strokeWidth": 1.5,
+            "strokeDash": [3, 3]
+          },
+          "encoding": {
+            "longitude": {"field": "lon_start", "type": "quantitative"},
+            "latitude": {"field": "lat_start", "type": "quantitative"},
+            "longitude2": {"field": "lon_end", "type": "quantitative"},
+            "latitude2": {"field": "lat_end", "type": "quantitative"}
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "dx": 8,
+            "dy": 0,
+            "fontSize": 11,
+            "fontStyle": "italic",
+            "fill": "#1A2620"
+          },
+          "encoding": {
+            "longitude": {"field": "lon_end", "type": "quantitative"},
+            "latitude": {"field": "lat_end", "type": "quantitative"},
+            "text": {"field": "text", "type": "nominal"},
+            "align": {"field": "align"},
+            "baseline": {"field": "baseline"}
+          }
+        }
+      ]
     }
   ]
 }

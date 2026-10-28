@@ -27,11 +27,45 @@ setInterval(() => {
   }, 600);
 }, ROTATE_MS);
 
-// Vega-Embed options (using your exact settings)
+const vegaThemeConfig = {
+  font: "Inter, sans-serif",
+  view: { stroke: null },
+  title: {
+    font: "Fraunces, serif",
+    fontSize: 16,
+    fontWeight: 400,
+    anchor: "start",
+    color: "#1A2620"
+  },
+  axis: {
+    labelFont: "Inter, sans-serif",
+    titleFont: "Inter, sans-serif",
+    titleFontWeight: "normal",
+    labelColor: "#6B6B5A",
+    titleColor: "#1A2620",
+    gridColor: "#EEE9DD",
+    domainColor: "#C9C385",
+    tickColor: "#C9C385"
+  },
+  legend: {
+    labelFont: "Inter, sans-serif",
+    titleFont: "Inter, sans-serif",
+    titleFontWeight: "normal",
+    labelColor: "#1A2620",
+    titleColor: "#1A2620"
+  },
+  range: {
+    ramp: ["#F3EBE4", "#A34A2A", "#4A2A18"],
+    category: ["#A34A2A", "#898243", "#74492C", "#68685A", "#4A6B52"]
+  }
+};
+
+// Vega-Embed options
 const opt = {
   actions: false,
   renderer: 'svg',
-  width: "container" // This tells Vega to fill the .vis-frame div
+  width: "container",
+  config: vegaThemeConfig 
 };
 
 const loadVisualizations = async () => {
