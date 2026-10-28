@@ -1,0 +1,72 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "rgba(247, 243, 234, 0.72)",
+  "data": {
+    "url": "data/mammal_function_data.txt",
+    "format": {
+      "type": "tsv"
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum['BodyMass-Value'] > 0"
+    },
+    {
+      "calculate": "log(datum['BodyMass-Value']) / log(10)",
+      "as": "log_bodymass"
+    },
+    {
+      "calculate": "datum.MSWFamilyLatin == 'Tachyglossidae' || datum.MSWFamilyLatin == 'Ornithorhynchidae' ? 'Monotremata' : datum.MSWFamilyLatin == 'Didelphidae' || datum.MSWFamilyLatin == 'Caenolestidae' || datum.MSWFamilyLatin == 'Microbiotheriidae' || datum.MSWFamilyLatin == 'Notoryctidae' || datum.MSWFamilyLatin == 'Myrmecobiidae' || datum.MSWFamilyLatin == 'Dasyuridae' || datum.MSWFamilyLatin == 'Thylacomyidae' || datum.MSWFamilyLatin == 'Peramelidae' || datum.MSWFamilyLatin == 'Phascolarctidae' || datum.MSWFamilyLatin == 'Vombatidae' || datum.MSWFamilyLatin == 'Burramyidae' || datum.MSWFamilyLatin == 'Phalangeridae' || datum.MSWFamilyLatin == 'Pseudocheiridae' || datum.MSWFamilyLatin == 'Petauridae' || datum.MSWFamilyLatin == 'Tarsipedidae' || datum.MSWFamilyLatin == 'Acrobatidae' || datum.MSWFamilyLatin == 'Macropodidae' || datum.MSWFamilyLatin == 'Hypsiprymnodontidae' || datum.MSWFamilyLatin == 'Potoroidae' ? 'Marsupialia' : 'Placentalia'",
+      "as": "HigherGroup"
+    },
+    {
+      "density": "log_bodymass",
+      "groupby": ["HigherGroup"],
+      "extent": [0, 7],
+      "steps": 100
+    },
+    {
+      "calculate": "-datum.density",
+      "as": "density_neg"
+    }
+  ],
+  "spacing": 10,
+  "facet": {
+    "field": "HigherGroup",
+    "type": "nominal",
+    "header": {
+      "title": null,
+      "labelFontSize": 12
+    }
+  },
+  "spec": {
+    "width": 110,
+    "height": 300,
+    "layer": [
+      {
+        "mark": {"type": "area", "orient": "horizontal"},
+        "encoding": {
+          "y": {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Common Logarithm of Body Mass (g)"
+          },
+          "x": {
+            "field": "density",
+            "type": "quantitative",
+            "axis": null
+          },
+          "x2": {"field": "density_neg"},
+          "color": {
+            "field": "HigherGroup",
+            "type": "nominal",
+            "legend": null,
+            "scale": {
+              "range": ["#62350B", "#235D3C", "#4E656B"]
+            }
+          }
+        }
+      }
+    ]
+  }
+}

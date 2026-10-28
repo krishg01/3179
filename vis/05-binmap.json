@@ -1,0 +1,80 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "rgba(247, 243, 234, 0.72)",
+  "width": "container",
+  "height": 450,
+  "projection": {
+    "type": "mercator"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/australia_states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#F2E8D6",
+        "stroke": null
+      }
+    },
+    {
+      "data": {
+        "url": "data/monotremes_binned.csv"
+      },
+      "mark": {
+        "type": "square",
+        "size": 40,
+        "opacity": 0.85,
+        "tooltip": true
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "count",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "goldgreen",
+            "type": "log"
+          },
+          "title": "Sighting Count"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/australia_states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "stroke": "#ffffff",
+        "strokeWidth": 0.7,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "properties.name",
+            "type": "nominal",
+            "title": "State / territory"
+          }
+        ]
+      }
+    }
+  ]
+}

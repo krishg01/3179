@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "background": "#f7f6f0",
+  "background": "rgba(247, 243, 234, 0.72)",
   "width": "container",
   "height": 260,
   "data": {
@@ -21,7 +21,7 @@
         "color": {
           "condition": {
             "test": "datum.Country === 'Australia'",
-            "value": "#A70534"
+            "value": "#d62728"
           },
           "value": "#a8b2b9"
         },

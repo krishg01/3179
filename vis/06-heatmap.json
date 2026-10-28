@@ -1,0 +1,63 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "rgba(247, 243, 234, 0.72)",
+  "width": "container",
+  "height": 260,
+  "data": {
+    "values": [
+      {"Locomotion": "Arboreal (Ar)", "Diet_Guild": "Invertebrivore", "Count": 18},
+      {"Locomotion": "Arboreal (Ar)", "Diet_Guild": "Herbivore/Folivore", "Count": 24},
+      {"Locomotion": "Arboreal (Ar)", "Diet_Guild": "Frugivore/Nectarivore", "Count": 14},
+      {"Locomotion": "Arboreal (Ar)", "Diet_Guild": "Carnivore/Scavenger", "Count": 2},
+      {"Locomotion": "Arboreal (Ar)", "Diet_Guild": "Omnivore", "Count": 8},
+      
+      {"Locomotion": "Scansorial (S)", "Diet_Guild": "Invertebrivore", "Count": 12},
+      {"Locomotion": "Scansorial (S)", "Diet_Guild": "Herbivore/Folivore", "Count": 6},
+      {"Locomotion": "Scansorial (S)", "Diet_Guild": "Frugivore/Nectarivore", "Count": 4},
+      {"Locomotion": "Scansorial (S)", "Diet_Guild": "Carnivore/Scavenger", "Count": 3},
+      {"Locomotion": "Scansorial (S)", "Diet_Guild": "Omnivore", "Count": 5},
+
+      {"Locomotion": "Ground-dwelling (G)", "Diet_Guild": "Invertebrivore", "Count": 68},
+      {"Locomotion": "Ground-dwelling (G)", "Diet_Guild": "Herbivore/Folivore", "Count": 58},
+      {"Locomotion": "Ground-dwelling (G)", "Diet_Guild": "Frugivore/Nectarivore", "Count": 2},
+      {"Locomotion": "Ground-dwelling (G)", "Diet_Guild": "Carnivore/Scavenger", "Count": 9},
+      {"Locomotion": "Ground-dwelling (G)", "Diet_Guild": "Omnivore", "Count": 15},
+
+      {"Locomotion": "Semi-aquatic (M)", "Diet_Guild": "Invertebrivore", "Count": 2},
+      {"Locomotion": "Semi-aquatic (M)", "Diet_Guild": "Carnivore/Scavenger", "Count": 1},
+
+      {"Locomotion": "Aerial (A)", "Diet_Guild": "Invertebrivore", "Count": 54},
+      {"Locomotion": "Aerial (A)", "Diet_Guild": "Frugivore/Nectarivore", "Count": 12}
+    ]
+  },
+  "mark": "rect",
+  "encoding": {
+    "x": {
+      "field": "Diet_Guild",
+      "type": "nominal",
+      "title": "Diet Guild",
+      "sort": ["Invertebrivore", "Herbivore/Folivore", "Frugivore/Nectarivore", "Omnivore", "Carnivore/Scavenger"],
+      "axis": {"labelAngle": -30}
+    },
+    "y": {
+      "field": "Locomotion",
+      "type": "nominal",
+      "title": "Locomotion Mode (ForStrat)",
+      "sort": ["Aerial (A)", "Arboreal (Ar)", "Scansorial (S)", "Ground-dwelling (G)", "Semi-aquatic (M)"]
+    },
+    "color": {
+      "field": "Count",
+      "type": "quantitative",
+      "title": "Species Count",
+      "scale": {"scheme": "purplered"}
+    },
+    "tooltip": [
+      {"field": "Locomotion", "type": "nominal"},
+      {"field": "Diet_Guild", "type": "nominal"},
+      {"field": "Count", "type": "quantitative"}
+    ]
+  },
+  "config": {
+    "axis": {"grid": true, "tickBand": "extent"}
+  }
+}

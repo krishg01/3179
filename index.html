@@ -1,269 +1,387 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>FIT3179 Assignment 2</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Vega & Vega-Lite Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FIT3179 Native Australian Mammals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 
 <body>
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero__inner">
+    <div class="eyebrow hero__eyebrow">FIT3179 · Data Visualisation 2 · Semester 2, 2026</div>
+    <h1 class="hero__title">An Island<br><em>Apart</em></h1>
+    <p class="hero__lede">What makes Australia's native mammals unlike anything else on Earth — and why isolation made them extraordinary.</p>
+    <a href="#intro" class="hero__scroll">
+      <span>Begin the story</span>
+      <svg width="14" height="20" viewBox="0 0 14 20" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M7 2v16M1 12l6 6 6-6"/>
+      </svg>
+    </a>
+  </div>
+</header>
 
-    <!-- HERO -->
-    <header class="hero">
+<!-- ============ INTRO + FACT CARDS + INLINE FACT BAND ============ -->
+<section class="section" id="intro">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom: 1.5rem;">Introduction · The world's mammals at a glance</div>
+    <div class="intro__grid">
+      <div class="intro__copy">
+        <h2>Over six thousand mammals. Every shape of life.</h2>
+        <p>Around <strong>6,400 described mammal species</strong> roam our planet, split across 
+          <strong>27 orders</strong> and every biome — from the frozen Arctic to the red heart of 
+          the Simpson Desert. They range in size from a 30-millimetre bat to a 30-metre whale, and 
+          live between two years and two centuries. Mammals are the group we belong to — but the 
+          mammals we know best in Australia are strange even by mammal standards.</p>
+        <p>The three species-rich orders we see globally — rodents, bats and eulipotyphlans 
+          (shrew-relatives) like shrews — account for over <strong>70% of all mammal species</strong>. 
+          Yet Australia has evolved an entirely different cast of characters: egg-laying monotremes, 
+          pouch-rearing marsupials, and a small set of placental species that arrived on their own terms.</p>
+        <p class="highlight">Before we dive into what makes Australia's mammals special, let's put 
+          the world's mammals in perspective.</p>
+        <aside class="fact-band" id="factBand" aria-live="polite">
+            <div class="fact-band__progress" id="factProgress"></div>
+            <div class="fact-band__head">
+                <span class="fact-band__dot"></span>
+                <span class="fact-band__label">Did you know?</span>
+            </div>
+            <div class="fact-band__content" id="factContent">Loading fact…</div>
+            <div class="fact-band__meta">
+                <span class="fact-band__count" id="factCount">1 / 9</span>
+                · Source: Atlas of Living Australia
+            </div>
+            </aside>  
+    </div>
 
-        <div class="hero-overlay"></div>
+    <div class="fact-cards">
+        <!-- Fact card - Size -->
+        <article class="fact-card">
+          <span class="fact-card__tag">Extremes · Size</span>
+          <div class="fact-card__compare">
+            <div class="fact-card__animal">
+              <img class="fact-card__thumb"
+                   src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/bc04d20a-c6d7-4b83-96b0-78d6ff2e482a/dfw7xf2-344a3b7a-037a-4869-811b-6b4463fb66b2.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2JjMDRkMjBhLWM2ZDctNGI4My05NmIwLTc4ZDZmZjJlNDgyYVwvZGZ3N3hmMi0zNDRhM2I3YS0wMzdhLTQ4NjktODExYi02YjQ0NjNmYjY2YjIuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.qljUQ2TBKiHj4ULWir4-Pn8BnyzDL5spLeWmenOBYD8"
+                   alt="Bumblebee bat">
+              <span class="fact-card__name">Bumblebee bat</span>
+              <span class="fact-card__metric">30-40 mm</span>
+            </div>
+            <div class="fact-card__animal">
+              <img class="fact-card__thumb"
+                   src="https://assets.worldwildlife.org/www-prd/images/Medium_WW1172346.2e16d0ba.fill-600x600.format-webp.webp"
+                   alt="Blue whale">
+              <span class="fact-card__name">Blue whale</span>
+              <span class="fact-card__metric">30 m</span>
+            </div>
+          </div>
+          <p class="fact-card__text">The smallest mammal is barely larger than a bumblebee; 
+            the largest is about as long as two and a half buses. A size range of roughly 1,000-fold 
+            within a single class.</p>
+          <div class="fact-card__source">Source: Mammalia, Atlas of Living Australia</div>
+        </article>
 
-        <div class="hero-content">
+        <!-- Fact card - Lifespan -->
+        <article class="fact-card">
+          <span class="fact-card__tag">Extremes · Lifespan</span>
+          <div class="fact-card__compare">
+            <div class="fact-card__animal">
+              <img class="fact-card__thumb"
+                   src="https://www.zoopraha.cz/images/web_RU/articles/Foto_1_bercouni_mladata.jpg"
+                   alt="Shrew">
+              <span class="fact-card__name">Shrew</span>
+              <span class="fact-card__metric">~2 years</span>
+            </div>
+            <div class="fact-card__animal">
+              <img class="fact-card__thumb"
+                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeTGEjhP8FKAHF5ygwxCoIZqGB5pWkGeJdZt_MbCZESQ&s=10"
+                   alt="Bowhead whale">
+              <span class="fact-card__name">Bowhead whale</span>
+              <span class="fact-card__metric">211 years</span>
+            </div>
+          </div>
+          <p class="fact-card__text">Mammal lifespans vary more than a hundredfold. A shrew 
+            may live two years; a bowhead whale can survive past two centuries — a window into 
+            the extraordinary diversity of mammalian strategies.</p>
+          <div class="fact-card__source">Source: Mammalia, Atlas of Living Australia</div>
+        </article>
+      </div>
+      <div>
+        <!--just some white space-->
+      </div>
+    </div>
 
-            <h1>
-                Australia's<br>
-                <span>Mammal Story</span>
-            </h1>
+<!-- ============ SECTION 1 — WORLD CONTEXT ============ -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-heading">
+      <div class="section-heading__num">01</div>
+      <h2 class="section-heading__title">The endemism advantage</h2>
+      <p class="section-heading__sub">Australia holds 387 mammal species — 289 (74.7%) of them occur nowhere else on Earth.
+        <br>'Endemic = found nowhere else on Earth.'
+      </p>
+    </div>
 
-            <p class="subtitle">
-                <i>How isolation shaped a unique<br>
-                community of mammals</i>
-            </p>
+    <div class="stat-row">
+      <div class="stat">
+        <div class="stat__num">387</div>
+        <div class="stat__label">Mammal species in Australia</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num"><span>74.7</span>%</div>
+        <div class="stat__label">Endemic to Australia</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">16.3<span>%</span></div>
+        <div class="stat__label">Currently threatened</div>
+      </div>
+    </div>
 
+    <div class="split">
+      <div class="chart-ph">
+        <div class="chart-ph__label">Chart idiom · Lollipop Chart</div>
+        <h3 class="chart-ph__title">Countries with the most mammal species</h3>
+        <p class="chart-ph__desc">Australia ranks 20th in the
+          world for mammal species; here it is set against the top five.</p>
+      <div id="vis-lollipop" class="vis-frame"></div>
+    </div>
+      <div class="chart-ph">
+        <div class="chart-ph__label">Chart idiom · Scatterplot</div>
+        <h3 class="chart-ph__title">How many of their mammals are endemic?</h3>
+        <p class="chart-ph__desc">Each dot represents the top 5 countries leading 
+          in endemism. Further right = more mammal species; higher = more of 
+          them found nowhere else.</p>
+      <div id="vis-scatter" class="vis-frame"></div>
+    </div>
+    </div>
+
+    <div class="map-ph map-ph--world" style="margin-top: 2rem;">
+      <div class="map-ph__icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" 
+        stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/>
+        </svg>
+      </div>
+      <div class="map-ph__label">World · Choropleth Map</div>
+      <h3 class="map-ph__title">An island apart</h3>
+      <p class="map-ph__desc">A world choropleth of mammal endemism by 
+        country. Australia, Madagascar and the Philippines sit at the top of the leaderboard.</p>
+    <div id="vis-choropleth" class="vis-frame"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 2 — MONOTREMES ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <div class="section-heading__num">02</div>
+      <h2 class="section-heading__title">Eggs and pouches</h2>
+      <p class="section-heading__sub">Two of the three great branches 
+        of mammal life — egg-laying monotremes and pouch-rearing marsupials 
+        — are overwhelmingly concentrated in the Australian region.</p>
+    </div>
+
+    <div class="split split--asymmetric">
+      <div class="narrative">
+        <h3>The strangest mammals on Earth</h3>
+        <p>Of the <strong>five living monotreme species</strong> in the world, 
+          four are found in Australia or New Guinea. Two of the three great 
+          lineages of mammals — the egg-laying <em>Prototheria</em> and the 
+          pouched <em>Metatheria</em> — are almost entirely Australasian. 
+          Only one of them still survives outside the region.</p>
+        <p>Where most of the world's mammals gave up the pouch and the egg, 
+          Australian mammals turned both into evolutionary advantages. 
+          The platypus, echidna, kangaroo, wombat and koala are the products 
+          of an estimated <strong>120-million-year isolation</strong> from 
+          the rest of the world's mammal lineages.</p>
+        <p class="highlight">Australia's mammals didn't merely survive 
+          isolation — they built a different, stranger biology within it.</p>
+      </div>
+
+      <div class="chart-ph">
+        <div class="chart-ph__label">Chart idiom · Violin plot</div>
+        <h3 class="chart-ph__title">Body mass by higher group</h3>
+        <p class="chart-ph__desc">Violin plot of log(body mass) for 
+          Australian monotremes, marsupials and placentals. Marsupial 
+          body masses spread wider than monotremes but stop short of 
+          the placental giants.</p>
+      <div id="vis-violin" class="vis-frame"></div>
+    </div>
+    </div>
+
+    <!-- AUSTRALIA MAP PLACEHOLDER #2 -->
+    <div class="map-ph" style="margin-top: 2rem; min-height: 400px;">
+      <div class="map-ph__icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M4 7l4-2 3 3 4-1 3 3 2-1v6l-3 2-2 3-4-1-3 3-4-4V7z"/>
+        </svg>
+      </div>
+      <div class="map-ph__label">Australia · Bin Map</div>
+      <h3 class="map-ph__title">Monotreme sighting richness by state</h3>
+      <p class="map-ph__desc">Monotremes are indigenious to Australia and New Guinea, making them.</p>
+      <div id="vis-binmap" class="vis-frame"></div>
+    </div>
+
+    <!-- IMAGE BAND -->
+    <div class="image-band"
+         style="background-image:
+           linear-gradient(180deg, rgba(18,28,22,0.05) 0%, rgba(18,28,22,0.55) 100%),
+           url('platypus\ &\ echidna.png')">
+      <div class="image-band__caption">The platypus and echidna — Australia's five-monotreme lineage, the only egg-laying mammals left on Earth.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 3 — DIET & HABITAT ============ -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-heading">
+      <div class="section-heading__num">03</div>
+      <h2 class="section-heading__title">What they eat &amp; where they live</h2>
+      <p class="section-heading__sub">Australia's mammals occupy unusual dietary niches — many with no equivalent elsewhere. Marsupial carnivores, nectar specialists and body-mass outliers reveal a diet ecology all their own.</p>
+    </div>
+
+    <div class="split">
+      <div class="chart-ph">
+        <div class="chart-ph__label">Chart idiom · Heatmap</div>
+        <h3 class="chart-ph__title">Diet × locomotion adjacency matrix</h3>
+        <p class="chart-ph__desc">Heatmap of diet guild (columns) vs. locomotion mode (rows) for all Australian species — where do the truly unusual combinations cluster?</p>
+        <div id="vis-heatmap" class="vis-frame"></div>
+      </div>
+      <div class="chart-ph">
+        <div class="chart-ph__label">Chart idiom · Dumbbell Chart</div>
+        <h3 class="chart-ph__title">Day vs. night activity</h3>
+        <p class="chart-ph__desc">Proportion of diurnal (active during day) vs. nocturnal (active during night) species across Australian families.</p>
+        <div id="vis-dumbbell" class="vis-frame"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <div class="section-heading__num">04</div>
+      <h2 class="section-heading__title">Let's compare to other taxons</h2>
+      <p class="section-heading__sub">Australia's mammals occupy unusual dietary niches — many with no equivalent elsewhere. Marsupial carnivores, nectar specialists and body-mass outliers reveal a diet ecology all their own.</p>
+    </div>
+
+    <div class="split">
+        <div class="chart-ph">
+            <div class="chart-ph__label">Chart idiom · Line Chart (Time Series)</div>
+            <h3 class="chart-ph__title">EPBC Act Listed Species Over Time (2000-2020)</h3>
+            <p class="chart-ph__desc">Cumulative net change in listed species since 2000, highlighting Mammals against all other taxonomic groups.</p>
+        <div id="vis-line" class="vis-frame"></div>
         </div>
-
-    </header>
-
-
-    <!-- INTRODUCTION -->
-    <section class="intro">
-
-        <div class="intro-text">
-
-            <p class="lead">
-                <strong>Australia is home to one of the world's most
-                distinctive mammal communities.</strong>
-            </p>
-
-            <p>
-                Cut off from other landmasses, Australia's native 
-                species evolved in deep geographic solitude. This isolation 
-                shaped unique biological adaptations, distinct feeding 
-                behaviors, and localized survival strategies.
-            </p>
-
+        <div class="chart-ph">
+            <div class="chart-ph__label">Chart idiom · Parallel Coordinates</div>
+            <h3 class="chart-ph__title">EPBC Listed Species by Threat Category (2020)</h3>
+            <p class="chart-ph__desc">Profiles of animal species counts across conservation categories highlighting Mammals.</p>
+        <div id="vis-parallel" class="vis-frame"></div>
         </div>
+    </div>
+  </div>
+</section>
 
+<!-- ============ SECTION 4 — CONSERVATION ============ -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-heading">
+      <div class="section-heading__num">05</div>
+      <h2 class="section-heading__title">Under pressure</h2>
+      <p class="section-heading__sub">Endemism cuts both ways. Australia's mammals are unique — and uniquely vulnerable. Over 16% of species are threatened, and 35 have gone extinct in the last 500 years.</p>
+    </div>
 
-        <!-- FUN FACT -->
-        <aside class="fact-card">
+    <div class="split split--asymmetric">
+      <div class="chart-ph">
+        <div class="chart-ph__label">Chart idiom · Normalised Bar chart</div>
+        <h3 class="chart-ph__title">Decline of Australia's orders</h3>
+        <p class="chart-ph__desc">The ratio of extinct-to-living species by mammal order — visualising which groups have suffered most.</p>
+        <div id="vis-norm-bar" class="vis-frame"></div>
+      </div>
 
-            <div class="fact-icon">
-                🐨
-            </div>
+      <div class="narrative">
+        <h3>The cost of being different</h3>
+        <p>Australia has the highest mammal extinction rate of any continent. Fifteen per cent of its mammal species have disappeared in just the last 500 years — and a further 63 are currently listed as threatened.</p>
+        <p>The causes are well documented: introduced predators, land-clearing, altered fire regimes, and a changing climate. But the scale is a direct consequence of endemism — the more special a species is, the fewer places it can survive.</p>
+        <p class="highlight">Preserving Australia's mammals means preserving the very strangeness that makes them worth studying.</p>
+      </div>
+    </div>
 
-            <div class="fact-content">
-
-                <h2>Fun Fact</h2>
-
-                <button id="factButton">
-                    Reveal Fact
-                </button>
-
-                <p id="factText" class="hidden">
-                    Australia has more marsupial species than
-                    any other continent!
-                </p>
-
-            </div>
-
-        </aside>
-
-    </section>
-
-    <!-- SECTION 1 -->
-    <section id="section-1" class="story-section"> 
-        
-        <!-- Section Header -->
-        <div class="section-header">
-            <span class="section-number">01</span>
-            <h2>A MAMMAL COMMUNITY LIKE NO OTHER</h2>
+    <div class="map-ph" style="margin-top: 2rem; min-height: 400px;">
+      <!-- AUSTRALIA MAP PLACEHOLDER #3 -->
+        <div class="map-ph__icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 7l4-2 3 3 4-1 3 3 2-1v6l-3 2-2 3-4-1-3 3-4-4V7z"/>
+            <circle cx="12" cy="12" r="1.5"/>
+          </svg>
         </div>
+        <div class="map-ph__label">Australia · Proportional Symbol Map</div>
+        <h3 class="map-ph__title">Threatened species density</h3>
+        <p class="map-ph__desc">Dot-density map: one dot per threatened native mammal record, overlaid on IBRA bioregions.</p>
+        <div id="vis-prop-symbol" class="vis-frame"></div>
+      </div>
+      
 
-        <!-- Section Intro Narrative (Full-Width) -->
-        <p class="section-intro">
-            Australia's mammalian fauna is defined by extreme evolutionary 
-            divergence. While placental mammals dominate most global landmasses, 
-            tens of millions of years in isolation allowed marsupials and 
-            monotremes to flourish in ecological niches elsewhere held by placentals.
-        </p>
+      
+    </div>
+  </div>
+</section>
 
-        <!-- Invisible 2x2 Grid Layout -->
-        <div class="grid-2x2">
+<!-- ============ SOURCES ============ -->
+<section class="sources">
+  <div class="container">
+    <h2>Sources &amp; metadata</h2>
+    <div class="sources__grid">
+      <ul class="sources__list">
+        <li>
+          <strong>Atlas of Living Australia — Mammalia</strong>
+          <a href="https://bie.ala.org.au/species/https%3A//biodiversity.org.au/afd/taxa/e9e7db31-04df-41fb-bd8d-e0b0f3c332d6">bie.ala.org.au/species/…e9e7db31</a> · Accessed 2026
+        </li>
+        <li>
+          <strong>Mammal Diversity Database (MDD)</strong>
+          <a href="https://www.mammaldiversity.org/country/AU/">mammaldiversity.org</a> · Accessed 2026
+        </li>
+        <li>
+          <strong>IUCN Red List</strong>
+          <a href="https://www.iucnredlist.org/">iucnredlist.org</a> · Accessed 2026
+        </li>
+      </ul>
+      <ul class="sources__list">
+        <li>
+          <strong>DCCEEW — SPRAT</strong>
+          <a href="https://www.environment.gov.au/cgi-bin/sprat/public/sprat.pl">environment.gov.au/cgi-bin/sprat</a>
+        </li>
+        <li>
+          <strong>PanTHERIA / EltonTraits</strong>
+          <a href="https://esapubs.org/archive/ecol/E090/184/">esapubs.org/archive/ecol/E090/184</a>
+        </li>
+        <li>
+          <strong>TopoJSON — Australian states</strong>
+          <a href="https://github.com/markmarkoh/datamaps">github.com/markmarkoh/datamaps</a>
+        </li>
+      </ul>
+    </div>
 
-            <!-- Chart 1 Block -->
-            <div class="vis-block">
-                <div class="vis-header">
-                    <h3>01 / Australian Mammal Family Tree</h3>
-                    <p class="vis-description">Taxonomy overview by subclass and order.</p>
-                </div>
-                <div id="chart-taxonomy" class="chart-container"></div>
-                <p>This introduces the three major lineages of Australian
-                     mammals to establish a classification framework before 
-                     comparing species counts across individual orders.</p>
-            </div>
+    <p style="font-size: 0.78rem; color: rgba(247, 243, 234, 0.5); line-height: 1.7; max-width: 70ch;">
+      <strong style="color: var(--sand);">Authorship &amp; AI acknowledgement.</strong>
+      Created by <b>Krishna Gehlot (34413111)</b>, <em>28/10/2026</em> for FIT3179 (Monash University). Generative AI was used to assist with drafting code structure and refining narrative copy. All data is sourced from the listed public datasets; all visualisations are original and produced with Vega-Lite.
+    </p>
+  </div>
+</section>
 
-            <!-- Chart Slot 2 -->
-            <div class="vis-block">
-                <div class="vis-header">
-                    <h3>02 / Living Australian Mammal Species by Order</h3>
-                    <p class="vis-description">Distribution of living 
-                        Australian mammal species grouped by evolutionary lineage.</p>
-                </div>
-                <div id="chart2" class="chart-container"></div>
-                <p>Marsupials dominate species count, 
-                    whereas monotremes remain scarce.</p>
-            </div>
+<footer class="footer">
+  <div class="container">Native Australian Mammals · A data story · Made in Kuala Lumpur, 2026</div>
+</footer>
 
-            <!-- Chart 3 Block -->
-            <div class="vis-block">
-                <div class="vis-header">
-                    <h3>03 / Living vs. Extinct (Last 500 Years)</h3>
-                    <p class="vis-description">Recent species extinctions heavily concentrated in Bandicoots and Rodents.</p>
-                </div>
-                <div id="chart-liv-ext" class="chart-container"></div>
-                <p>Extinction over the last 500 years has disproportionately 
-                    devastated ground-dwelling groups. <strong>42%</strong> of bandicoot species 
-                    and <strong>17%</strong> of native rodents have been lost.</p>
-            </div>
-
-            <!-- Chart 4 Block -->
-            <div class="vis-block">
-                <div class="vis-header">
-                    <h3>04 / Global Endemism Leaderboard</h3>
-                    <p class="vis-description">Total native mammal species count 
-                        vs. percentage endemic to each country.</p>
-                </div>
-                <div id="chart-world-comp" class="chart-container"></div>
-                <p>Over <strong>74.7% of Australia's 387 mammal species are strictly 
-                    endemic</strong>, meaning they exist nowhere else on Earth.</p>
-            </div>
-
-        </div>
-
-    </section>
-
-    <hr style="width: 100%; height: 0.3px; background-color: black; border: none;">
-
-    <!-- SECTION 2 / MAP SECTION -->
-    <section id="section-2" class="story-section">
-
-        <!-- Section Header -->
-        <div class="section-header">
-            <span class="section-number">02</span>
-            <h2>MAMMAL OCCURRENCE DENSITY</h2>
-        </div>
-
-        <!-- Section Intro Narrative (Optional) -->
-        <p class="section-intro">
-            Spatial distribution of native mammal sightings across the continent.
-        </p>
-
-        <!-- Map Row -->
-        <div class="map-row">
-            <!-- Left: map (75%) -->
-            <div class="vis-block">
-                <div class="vis-header">
-                    <h3>05 / Mammal Occurrence Density</h3>
-                    <p class="vis-description">Recorded mammal occurrences per 0.25° grid cell across Australia.</p>
-                </div>
-                <div id="chart-density" class="chart-container"></div>
-            </div>
-
-            <!-- Right: commentary (25%) -->
-            <aside class="map-commentary">
-                <h4>What stands out</h4>
-                <p>Your thoughts on the map go here.</p>
-            </aside>
-        </div>
-
-    </section>
-
-    <!-- SECTION 3 -->
-    <section id="section-3" class="story-section"> 
-        
-        <!-- Section Header -->
-        <div class="section-header">
-            <span class="section-number">03</span>
-            <h2>HOW DO THEY LIVE?</h2>
-        </div>
-
-        <!-- Section Intro Narrative (Full-Width) -->
-        <p class="section-intro">
-            intro.
-        </p>
-
-        <!-- Invisible 2x2 Grid Layout -->
-        <div class="grid-2x2">
-
-            <!-- Chart 8: Heatmap -->
-            <div class="vis-block">
-                <div class="vis-header">
-                    <h3>08 / Habitat Preferences</h3>
-                    <p class="vis-description">Distribution of species counts across major Australian ecological biomes.</p>
-                </div>
-                <div id="chart-habitat" class="chart-container"></div>
-                <p>Text.</p>
-            </div>
-
-            <!-- Chart 9: Bar chart -->
-            <div class="vis-block">
-                <div class="vis-header">
-                    <h3>09 / Trophic & Dietary Niches</h3>
-                    <p class="vis-description">Proportion of herbivorous, carnivorous, and insectivorous species per group.</p>
-                </div>
-                <div id="chart-diet" class="chart-container"></div>
-                <p>text</p>
-            </div>
-
-            <!-- Chart 10: Violin plot-->
-            <div class="vis-block">
-                <div class="vis-header">
-                    <h3>10 / Body Mass Spectrum</h3>
-                    <p class="vis-description">Weight ranges mapped on a logarithmic scale (kg) across taxonomic orders.</p>
-                </div>
-                <div id="chart-mass" class="chart-container"></div>
-                <p>text</p>
-            </div>
-
-            <!-- Chart 11: Donut chart -->
-            <div class="vis-block">
-                <div class="vis-header">
-                    <h3>11 / Temporal Activity Cycles</h3>
-                    <p class="vis-description">Breakdown of nocturnal, diurnal, and crepuscular habits among native species.</p>
-                </div>
-                <div id="chart-activity" class="chart-container"></div>
-                <p>text</p>
-            </div>
-
-        </div>
-
-    </section>
-
-    <script src="script.js"></script>
-
+<script type="module" src="script.js"></script>
 </body>
-
 </html>

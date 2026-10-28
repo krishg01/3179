@@ -1,0 +1,1554 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  
+  "background": "rgba(247, 243, 234, 0.72)",
+  "width": "container",
+  "height": 520,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "projection": {
+    "type": "equalEarth"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e0e0e0",
+        "stroke": "#ffffff",
+        "strokeWidth": 0.5
+      }
+    }
+    ,
+    {
+    "data": {
+    "url": "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json",
+    "format": {
+      "type": "topojson",
+      "feature": "countries"
+    }
+  },
+  "transform": [
+    {
+      "lookup": "properties.name",
+      "from": {
+        "data": {
+          "values": [
+            {
+              "Country": "Indonesia",
+              "PctEndemic": 37.4,
+              "Species": 789,
+              "Endemic": 295,
+              "PctThreatened": "24.20%"
+            },
+            {
+              "Country": "Brazil",
+              "PctEndemic": 32.9,
+              "Species": 779,
+              "Endemic": 256,
+              "PctThreatened": "10.30%"
+            },
+            {
+              "Country": "Republic of the Congo",
+              "PctEndemic": 0.7,
+              "Species": 739,
+              "Endemic": 5,
+              "PctThreatened": "2.00%"
+            },
+            {
+              "Country": "China",
+              "PctEndemic": 28.0,
+              "Species": 722,
+              "Endemic": 202,
+              "PctThreatened": "10.10%"
+            },
+            {
+              "Country": "Mexico",
+              "PctEndemic": 36.6,
+              "Species": 580,
+              "Endemic": 212,
+              "PctThreatened": "16.60%"
+            },
+            {
+              "Country": "Peru",
+              "PctEndemic": 15.2,
+              "Species": 573,
+              "Endemic": 87,
+              "PctThreatened": "9.20%"
+            },
+            {
+              "Country": "Colombia",
+              "PctEndemic": 12.6,
+              "Species": 531,
+              "Endemic": 67,
+              "PctThreatened": "10.90%"
+            },
+            {
+              "Country": "Democratic Republic of the Congo",
+              "PctEndemic": 9.3,
+              "Species": 507,
+              "Endemic": 47,
+              "PctThreatened": "6.30%"
+            },
+            {
+              "Country": "United States of America",
+              "PctEndemic": 21.8,
+              "Species": 476,
+              "Endemic": 104,
+              "PctThreatened": "8.40%"
+            },
+            {
+              "Country": "Niger",
+              "PctEndemic": 0.0,
+              "Species": 452,
+              "Endemic": 0,
+              "PctThreatened": "2.90%"
+            },
+            {
+              "Country": "Ecuador",
+              "PctEndemic": 13.5,
+              "Species": 445,
+              "Endemic": 60,
+              "PctThreatened": "10.60%"
+            },
+            {
+              "Country": "Sudan",
+              "PctEndemic": 1.8,
+              "Species": 444,
+              "Endemic": 8,
+              "PctThreatened": "3.60%"
+            },
+            {
+              "Country": "India",
+              "PctEndemic": 13.7,
+              "Species": 438,
+              "Endemic": 60,
+              "PctThreatened": "21.20%"
+            },
+            {
+              "Country": "Bolivia",
+              "PctEndemic": 7.7,
+              "Species": 416,
+              "Endemic": 32,
+              "PctThreatened": "5.00%"
+            },
+            {
+              "Country": "Kenya",
+              "PctEndemic": 5.6,
+              "Species": 410,
+              "Endemic": 23,
+              "PctThreatened": "7.30%"
+            },
+            {
+              "Country": "Venezuela",
+              "PctEndemic": 8.3,
+              "Species": 409,
+              "Endemic": 34,
+              "PctThreatened": "8.60%"
+            },
+            {
+              "Country": "Argentina",
+              "PctEndemic": 23.6,
+              "Species": 407,
+              "Endemic": 96,
+              "PctThreatened": "9.30%"
+            },
+            {
+              "Country": "Tanzania",
+              "PctEndemic": 11.1,
+              "Species": 405,
+              "Endemic": 45,
+              "PctThreatened": "10.10%"
+            },
+            {
+              "Country": "Australia",
+              "PctEndemic": 74.7,
+              "Species": 387,
+              "Endemic": 289,
+              "PctThreatened": "16.30%"
+            },
+            {
+              "Country": "Cameroon",
+              "PctEndemic": 5.9,
+              "Species": 370,
+              "Endemic": 22,
+              "PctThreatened": "12.40%"
+            },
+            {
+              "Country": "Uganda",
+              "PctEndemic": 0.8,
+              "Species": 367,
+              "Endemic": 3,
+              "PctThreatened": "8.40%"
+            },
+            {
+              "Country": "Malaysia",
+              "PctEndemic": 9.5,
+              "Species": 358,
+              "Endemic": 34,
+              "PctThreatened": "19.80%"
+            },
+            {
+              "Country": "Vietnam",
+              "PctEndemic": 8.4,
+              "Species": 357,
+              "Endemic": 30,
+              "PctThreatened": "15.70%"
+            },
+            {
+              "Country": "Myanmar",
+              "PctEndemic": 2.5,
+              "Species": 354,
+              "Endemic": 9,
+              "PctThreatened": "13.80%"
+            },
+            {
+              "Country": "Thailand",
+              "PctEndemic": 1.7,
+              "Species": 345,
+              "Endemic": 6,
+              "PctThreatened": "17.10%"
+            },
+            {
+              "Country": "Angola",
+              "PctEndemic": 4.2,
+              "Species": 333,
+              "Endemic": 14,
+              "PctThreatened": "5.40%"
+            },
+            {
+              "Country": "Russia",
+              "PctEndemic": 7.1,
+              "Species": 325,
+              "Endemic": 23,
+              "PctThreatened": "10.50%"
+            },
+            {
+              "Country": "South Africa",
+              "PctEndemic": 12.4,
+              "Species": 322,
+              "Endemic": 40,
+              "PctThreatened": "9.30%"
+            },
+            {
+              "Country": "Ethiopia",
+              "PctEndemic": 18.0,
+              "Species": 316,
+              "Endemic": 57,
+              "PctThreatened": "10.80%"
+            },
+            {
+              "Country": "Nigeria",
+              "PctEndemic": 1.9,
+              "Species": 315,
+              "Endemic": 6,
+              "PctThreatened": "9.80%"
+            },
+            {
+              "Country": "Papua New Guinea",
+              "PctEndemic": 31.2,
+              "Species": 295,
+              "Endemic": 92,
+              "PctThreatened": "13.90%"
+            },
+            {
+              "Country": "C\u00f4te d'Ivoire",
+              "PctEndemic": 70.0,
+              "Species": 278,
+              "Endemic": 2,
+              "PctThreatened": "11.20%"
+            },
+            {
+              "Country": "Ghana",
+              "PctEndemic": 0.4,
+              "Species": 275,
+              "Endemic": 1,
+              "PctThreatened": "7.60%"
+            },
+            {
+              "Country": "Mozambique",
+              "PctEndemic": 1.5,
+              "Species": 265,
+              "Endemic": 4,
+              "PctThreatened": "6.40%"
+            },
+            {
+              "Country": "Central Af. Rep.",
+              "PctEndemic": 0.8,
+              "Species": 261,
+              "Endemic": 2,
+              "PctThreatened": "6.10%"
+            },
+            {
+              "Country": "Laos",
+              "PctEndemic": 1.9,
+              "Species": 261,
+              "Endemic": 5,
+              "PctThreatened": "17.20%"
+            },
+            {
+              "Country": "Zambia",
+              "PctEndemic": 2.7,
+              "Species": 260,
+              "Endemic": 7,
+              "PctThreatened": "5.00%"
+            },
+            {
+              "Country": "Panama",
+              "PctEndemic": 7.4,
+              "Species": 258,
+              "Endemic": 19,
+              "PctThreatened": "6.60%"
+            },
+            {
+              "Country": "Madagascar",
+              "PctEndemic": 84.4,
+              "Species": 257,
+              "Endemic": 217,
+              "PctThreatened": "47.10%"
+            },
+            {
+              "Country": "Costa Rica",
+              "PctEndemic": 2.7,
+              "Species": 256,
+              "Endemic": 7,
+              "PctThreatened": "4.30%"
+            },
+            {
+              "Country": "Guyana",
+              "PctEndemic": 0.0,
+              "Species": 256,
+              "Endemic": 0,
+              "PctThreatened": "4.30%"
+            },
+            {
+              "Country": "Guinea",
+              "PctEndemic": 1.2,
+              "Species": 254,
+              "Endemic": 3,
+              "PctThreatened": "11.80%"
+            },
+            {
+              "Country": "South Sudan",
+              "PctEndemic": 1.2,
+              "Species": 244,
+              "Endemic": 3,
+              "PctThreatened": "5.70%"
+            },
+            {
+              "Country": "Guatemala",
+              "PctEndemic": 7.0,
+              "Species": 243,
+              "Endemic": 17,
+              "PctThreatened": "6.20%"
+            },
+            {
+              "Country": "Honduras",
+              "PctEndemic": 3.8,
+              "Species": 237,
+              "Endemic": 9,
+              "PctThreatened": "3.40%"
+            },
+            {
+              "Country": "Philippines",
+              "PctEndemic": 62.3,
+              "Species": 236,
+              "Endemic": 147,
+              "PctThreatened": "16.10%"
+            },
+            {
+              "Country": "Suriname",
+              "PctEndemic": 0.9,
+              "Species": 231,
+              "Endemic": 2,
+              "PctThreatened": "3.90%"
+            },
+            {
+              "Country": "Canada",
+              "PctEndemic": 3.2,
+              "Species": 222,
+              "Endemic": 7,
+              "PctThreatened": "8.10%"
+            },
+            {
+              "Country": "Nicaragua",
+              "PctEndemic": 1.4,
+              "Species": 219,
+              "Endemic": 3,
+              "PctThreatened": "3.20%"
+            },
+            {
+              "Country": "Namibia",
+              "PctEndemic": 1.4,
+              "Species": 217,
+              "Endemic": 3,
+              "PctThreatened": "6.90%"
+            },
+            {
+              "Country": "Iran",
+              "PctEndemic": 4.2,
+              "Species": 215,
+              "Endemic": 9,
+              "PctThreatened": "8.40%"
+            },
+            {
+              "Country": "Zimbabwe",
+              "PctEndemic": 0.5,
+              "Species": 212,
+              "Endemic": 1,
+              "PctThreatened": "4.70%"
+            },
+            {
+              "Country": "Liberia",
+              "PctEndemic": 0.0,
+              "Species": 212,
+              "Endemic": 0,
+              "PctThreatened": "11.30%"
+            },
+            {
+              "Country": "Rwanda",
+              "PctEndemic": 0.5,
+              "Species": 211,
+              "Endemic": 1,
+              "PctThreatened": "11.40%"
+            },
+            {
+              "Country": "Malawi",
+              "PctEndemic": 1.4,
+              "Species": 210,
+              "Endemic": 3,
+              "PctThreatened": "4.80%"
+            },
+            {
+              "Country": "Sierra Leone",
+              "PctEndemic": 0.0,
+              "Species": 204,
+              "Endemic": 0,
+              "PctThreatened": "10.80%"
+            },
+            {
+              "Country": "Benin",
+              "PctEndemic": 0.0,
+              "Species": 203,
+              "Endemic": 0,
+              "PctThreatened": "6.40%"
+            },
+            {
+              "Country": "Cambodia",
+              "PctEndemic": 0.5,
+              "Species": 203,
+              "Endemic": 1,
+              "PctThreatened": "19.20%"
+            },
+            {
+              "Country": "Gabon",
+              "PctEndemic": 1.5,
+              "Species": 202,
+              "Endemic": 3,
+              "PctThreatened": "8.90%"
+            },
+            {
+              "Country": "Pakistan",
+              "PctEndemic": 1.5,
+              "Species": 202,
+              "Endemic": 3,
+              "PctThreatened": "12.40%"
+            },
+            {
+              "Country": "Togo",
+              "PctEndemic": 0.5,
+              "Species": 201,
+              "Endemic": 1,
+              "PctThreatened": "6.50%"
+            },
+            {
+              "Country": "Nepal",
+              "PctEndemic": 1.0,
+              "Species": 196,
+              "Endemic": 2,
+              "PctThreatened": "14.80%"
+            },
+            {
+              "Country": "Senegal",
+              "PctEndemic": 0.0,
+              "Species": 194,
+              "Endemic": 0,
+              "PctThreatened": "9.80%"
+            },
+            {
+              "Country": "Somalia",
+              "PctEndemic": 4.8,
+              "Species": 187,
+              "Endemic": 9,
+              "PctThreatened": "8.60%"
+            },
+            {
+              "Country": "Equatorial Guinea",
+              "PctEndemic": 1.6,
+              "Species": 187,
+              "Endemic": 3,
+              "PctThreatened": "12.30%"
+            },
+            {
+              "Country": "Brunei",
+              "PctEndemic": 0.0,
+              "Species": 183,
+              "Endemic": 0,
+              "PctThreatened": "18.00%"
+            },
+            {
+              "Country": "Paraguay",
+              "PctEndemic": 0.6,
+              "Species": 180,
+              "Endemic": 1,
+              "PctThreatened": "5.60%"
+            },
+            {
+              "Country": "Burundi",
+              "PctEndemic": 0.6,
+              "Species": 175,
+              "Endemic": 1,
+              "PctThreatened": "8.00%"
+            },
+            {
+              "Country": "Kazakhstan",
+              "PctEndemic": 2.3,
+              "Species": 175,
+              "Endemic": 4,
+              "PctThreatened": "9.10%"
+            },
+            {
+              "Country": "Turkey",
+              "PctEndemic": 4.6,
+              "Species": 173,
+              "Endemic": 8,
+              "PctThreatened": "11.00%"
+            },
+            {
+              "Country": "Botswana",
+              "PctEndemic": 0.0,
+              "Species": 172,
+              "Endemic": 0,
+              "PctThreatened": "6.40%"
+            },
+            {
+              "Country": "El Salvador",
+              "PctEndemic": 0.0,
+              "Species": 160,
+              "Endemic": 0,
+              "PctThreatened": "3.80%"
+            },
+            {
+              "Country": "Chile",
+              "PctEndemic": 9.4,
+              "Species": 160,
+              "Endemic": 15,
+              "PctThreatened": "11.90%"
+            },
+            {
+              "Country": "Mali",
+              "PctEndemic": 0.6,
+              "Species": 159,
+              "Endemic": 1,
+              "PctThreatened": "8.80%"
+            },
+            {
+              "Country": "Belize",
+              "PctEndemic": 0.0,
+              "Species": 156,
+              "Endemic": 0,
+              "PctThreatened": "6.40%"
+            },
+            {
+              "Country": "Japan",
+              "PctEndemic": 29.9,
+              "Species": 154,
+              "Endemic": 46,
+              "PctThreatened": "18.80%"
+            },
+            {
+              "Country": "Bangladesh",
+              "PctEndemic": 0.0,
+              "Species": 152,
+              "Endemic": 0,
+              "PctThreatened": "24.30%"
+            },
+            {
+              "Country": "Chad",
+              "PctEndemic": 0.0,
+              "Species": 150,
+              "Endemic": 0,
+              "PctThreatened": "10.70%"
+            },
+            {
+              "Country": "Mongolia",
+              "PctEndemic": 2.0,
+              "Species": 148,
+              "Endemic": 3,
+              "PctThreatened": "7.40%"
+            },
+            {
+              "Country": "Guinea-Bissau",
+              "PctEndemic": 0.0,
+              "Species": 143,
+              "Endemic": 0,
+              "PctThreatened": "9.80%"
+            },
+            {
+              "Country": "Bhutan",
+              "PctEndemic": 0.0,
+              "Species": 142,
+              "Endemic": 0,
+              "PctThreatened": "17.60%"
+            },
+            {
+              "Country": "Burkina Faso",
+              "PctEndemic": 0.0,
+              "Species": 140,
+              "Endemic": 0,
+              "PctThreatened": "6.40%"
+            },
+            {
+              "Country": "France",
+              "PctEndemic": 0.7,
+              "Species": 139,
+              "Endemic": 1,
+              "PctThreatened": "6.50%"
+            },
+            {
+              "Country": "Eswatini",
+              "PctEndemic": 0.0,
+              "Species": 138,
+              "Endemic": 0,
+              "PctThreatened": "6.50%"
+            },
+            {
+              "Country": "Gambia",
+              "PctEndemic": 0.0,
+              "Species": 136,
+              "Endemic": 0,
+              "PctThreatened": "7.40%"
+            },
+            {
+              "Country": "Afghanistan",
+              "PctEndemic": 0.7,
+              "Species": 135,
+              "Endemic": 1,
+              "PctThreatened": "8.10%"
+            },
+            {
+              "Country": "Georgia",
+              "PctEndemic": 0.0,
+              "Species": 132,
+              "Endemic": 0,
+              "PctThreatened": "6.80%"
+            },
+            {
+              "Country": "Morocco",
+              "PctEndemic": 3.0,
+              "Species": 132,
+              "Endemic": 4,
+              "PctThreatened": "13.60%"
+            },
+            {
+              "Country": "Spain",
+              "PctEndemic": 2.3,
+              "Species": 130,
+              "Endemic": 3,
+              "PctThreatened": "13.10%"
+            },
+            {
+              "Country": "Italy",
+              "PctEndemic": 3.1,
+              "Species": 128,
+              "Endemic": 4,
+              "PctThreatened": "6.30%"
+            },
+            {
+              "Country": "Uruguay",
+              "PctEndemic": 2.3,
+              "Species": 128,
+              "Endemic": 3,
+              "PctThreatened": "7.80%"
+            },
+            {
+              "Country": "Eritrea",
+              "PctEndemic": 0.0,
+              "Species": 126,
+              "Endemic": 0,
+              "PctThreatened": "11.90%"
+            },
+            {
+              "Country": "Trinidad and Tobago",
+              "PctEndemic": 0.8,
+              "Species": 125,
+              "Endemic": 1,
+              "PctThreatened": "1.60%"
+            },
+            {
+              "Country": "Sri Lanka",
+              "PctEndemic": 14.9,
+              "Species": 121,
+              "Endemic": 18,
+              "PctThreatened": "24.80%"
+            },
+            {
+              "Country": "Mauritania",
+              "PctEndemic": 1.7,
+              "Species": 118,
+              "Endemic": 2,
+              "PctThreatened": "15.30%"
+            },
+            {
+              "Country": "Greece",
+              "PctEndemic": 1.7,
+              "Species": 117,
+              "Endemic": 2,
+              "PctThreatened": "8.50%"
+            },
+            {
+              "Country": "Israel",
+              "PctEndemic": 0.0,
+              "Species": 116,
+              "Endemic": 0,
+              "PctThreatened": "12.90%"
+            },
+            {
+              "Country": "Egypt",
+              "PctEndemic": 4.4,
+              "Species": 114,
+              "Endemic": 5,
+              "PctThreatened": "15.80%"
+            },
+            {
+              "Country": "Azerbaijan",
+              "PctEndemic": 0.0,
+              "Species": 112,
+              "Endemic": 0,
+              "PctThreatened": "7.10%"
+            },
+            {
+              "Country": "North Korea",
+              "PctEndemic": 0.0,
+              "Species": 112,
+              "Endemic": 0,
+              "PctThreatened": "8.90%"
+            },
+            {
+              "Country": "Ukraine",
+              "PctEndemic": 2.7,
+              "Species": 112,
+              "Endemic": 3,
+              "PctThreatened": "9.80%"
+            },
+            {
+              "Country": "Algeria",
+              "PctEndemic": 0.9,
+              "Species": 109,
+              "Endemic": 1,
+              "PctThreatened": "12.80%"
+            },
+            {
+              "Country": "Taiwan",
+              "PctEndemic": 17.8,
+              "Species": 107,
+              "Endemic": 19,
+              "PctThreatened": "0.00%"
+            },
+            {
+              "Country": "Germany",
+              "PctEndemic": 0.0,
+              "Species": 107,
+              "Endemic": 0,
+              "PctThreatened": "4.70%"
+            },
+            {
+              "Country": "Turkmenistan",
+              "PctEndemic": 0.0,
+              "Species": 107,
+              "Endemic": 0,
+              "PctThreatened": "9.30%"
+            },
+            {
+              "Country": "Syria",
+              "PctEndemic": 1.0,
+              "Species": 105,
+              "Endemic": 1,
+              "PctThreatened": "13.30%"
+            },
+            {
+              "Country": "Croatia",
+              "PctEndemic": 0.0,
+              "Species": 104,
+              "Endemic": 0,
+              "PctThreatened": "8.70%"
+            },
+            {
+              "Country": "Romania",
+              "PctEndemic": 1.9,
+              "Species": 103,
+              "Endemic": 2,
+              "PctThreatened": "8.70%"
+            },
+            {
+              "Country": "Portugal",
+              "PctEndemic": 1.0,
+              "Species": 103,
+              "Endemic": 1,
+              "PctThreatened": "12.60%"
+            },
+            {
+              "Country": "Djibouti",
+              "PctEndemic": 0.0,
+              "Species": 102,
+              "Endemic": 0,
+              "PctThreatened": "10.80%"
+            },
+            {
+              "Country": "Iraq",
+              "PctEndemic": 0.0,
+              "Species": 100,
+              "Endemic": 0,
+              "PctThreatened": "13.00%"
+            },
+            {
+              "Country": "Uzbekistan",
+              "PctEndemic": 0.0,
+              "Species": 99,
+              "Endemic": 0,
+              "PctThreatened": "10.10%"
+            },
+            {
+              "Country": "Bulgaria",
+              "PctEndemic": 1.0,
+              "Species": 98,
+              "Endemic": 1,
+              "PctThreatened": "8.20%"
+            },
+            {
+              "Country": "Armenia",
+              "PctEndemic": 2.0,
+              "Species": 98,
+              "Endemic": 2,
+              "PctThreatened": "9.20%"
+            },
+            {
+              "Country": "Dominica",
+              "PctEndemic": 1.0,
+              "Species": 96,
+              "Endemic": 1,
+              "PctThreatened": "3.10%"
+            },
+            {
+              "Country": "Bosnia and Herz.",
+              "PctEndemic": 0.0,
+              "Species": 96,
+              "Endemic": 0,
+              "PctThreatened": "4.20%"
+            },
+            {
+              "Country": "Saudi Arabia",
+              "PctEndemic": 1.0,
+              "Species": 96,
+              "Endemic": 1,
+              "PctThreatened": "11.50%"
+            },
+            {
+              "Country": "Albania",
+              "PctEndemic": 0.0,
+              "Species": 94,
+              "Endemic": 0,
+              "PctThreatened": "3.20%"
+            },
+            {
+              "Country": "Jordan",
+              "PctEndemic": 0.0,
+              "Species": 94,
+              "Endemic": 0,
+              "PctThreatened": "13.80%"
+            },
+            {
+              "Country": "Poland",
+              "PctEndemic": 1.1,
+              "Species": 92,
+              "Endemic": 1,
+              "PctThreatened": "4.30%"
+            },
+            {
+              "Country": "South Korea",
+              "PctEndemic": 0.0,
+              "Species": 92,
+              "Endemic": 0,
+              "PctThreatened": "13.00%"
+            },
+            {
+              "Country": "Austria",
+              "PctEndemic": 0.0,
+              "Species": 91,
+              "Endemic": 0,
+              "PctThreatened": "3.30%"
+            },
+            {
+              "Country": "Serbia",
+              "PctEndemic": 0.0,
+              "Species": 91,
+              "Endemic": 0,
+              "PctThreatened": "6.60%"
+            },
+            {
+              "Country": "Yemen",
+              "PctEndemic": 4.4,
+              "Species": 91,
+              "Endemic": 4,
+              "PctThreatened": "12.10%"
+            },
+            {
+              "Country": "Singapore",
+              "PctEndemic": 1.1,
+              "Species": 91,
+              "Endemic": 1,
+              "PctThreatened": "15.40%"
+            },
+            {
+              "Country": "Slovenia",
+              "PctEndemic": 0.0,
+              "Species": 90,
+              "Endemic": 0,
+              "PctThreatened": "6.70%"
+            },
+            {
+              "Country": "Kyrgyzstan",
+              "PctEndemic": 1.1,
+              "Species": 89,
+              "Endemic": 1,
+              "PctThreatened": "5.60%"
+            },
+            {
+              "Country": "Tunisia",
+              "PctEndemic": 1.1,
+              "Species": 88,
+              "Endemic": 1,
+              "PctThreatened": "15.90%"
+            },
+            {
+              "Country": "Slovakia",
+              "PctEndemic": 0.0,
+              "Species": 87,
+              "Endemic": 0,
+              "PctThreatened": "4.60%"
+            },
+            {
+              "Country": "Montenegro",
+              "PctEndemic": 0.0,
+              "Species": 87,
+              "Endemic": 0,
+              "PctThreatened": "6.90%"
+            },
+            {
+              "Country": "Libya",
+              "PctEndemic": 2.3,
+              "Species": 87,
+              "Endemic": 2,
+              "PctThreatened": "11.50%"
+            },
+            {
+              "Country": "Oman",
+              "PctEndemic": 1.1,
+              "Species": 87,
+              "Endemic": 1,
+              "PctThreatened": "11.50%"
+            },
+            {
+              "Country": "Switzerland",
+              "PctEndemic": 0.0,
+              "Species": 86,
+              "Endemic": 0,
+              "PctThreatened": "3.50%"
+            },
+            {
+              "Country": "Hungary",
+              "PctEndemic": 0.0,
+              "Species": 85,
+              "Endemic": 0,
+              "PctThreatened": "3.50%"
+            },
+            {
+              "Country": "United Kingdom",
+              "PctEndemic": 0.0,
+              "Species": 85,
+              "Endemic": 0,
+              "PctThreatened": "5.90%"
+            },
+            {
+              "Country": "Tajikistan",
+              "PctEndemic": 0.0,
+              "Species": 84,
+              "Endemic": 0,
+              "PctThreatened": "8.30%"
+            },
+            {
+              "Country": "Norway",
+              "PctEndemic": 0.0,
+              "Species": 83,
+              "Endemic": 0,
+              "PctThreatened": "9.60%"
+            },
+            {
+              "Country": "Belgium",
+              "PctEndemic": 0.0,
+              "Species": 82,
+              "Endemic": 0,
+              "PctThreatened": "2.40%"
+            },
+            {
+              "Country": "North Macedonia",
+              "PctEndemic": 0.0,
+              "Species": 82,
+              "Endemic": 0,
+              "PctThreatened": "7.30%"
+            },
+            {
+              "Country": "Lesotho",
+              "PctEndemic": 0.0,
+              "Species": 81,
+              "Endemic": 0,
+              "PctThreatened": "4.90%"
+            },
+            {
+              "Country": "Sweden",
+              "PctEndemic": 0.0,
+              "Species": 80,
+              "Endemic": 0,
+              "PctThreatened": "1.30%"
+            },
+            {
+              "Country": "Netherlands",
+              "PctEndemic": 0.0,
+              "Species": 80,
+              "Endemic": 0,
+              "PctThreatened": "3.80%"
+            },
+            {
+              "Country": "Lebanon",
+              "PctEndemic": 0.0,
+              "Species": 80,
+              "Endemic": 0,
+              "PctThreatened": "12.50%"
+            },
+            {
+              "Country": "Solomon Islands",
+              "PctEndemic": 24.1,
+              "Species": 79,
+              "Endemic": 19,
+              "PctThreatened": "24.10%"
+            },
+            {
+              "Country": "Czechia",
+              "PctEndemic": 0.0,
+              "Species": 78,
+              "Endemic": 0,
+              "PctThreatened": "3.80%"
+            },
+            {
+              "Country": "Kosovo",
+              "PctEndemic": 0.0,
+              "Species": 75,
+              "Endemic": 0,
+              "PctThreatened": "0.00%"
+            },
+            {
+              "Country": "Moldova",
+              "PctEndemic": 0.0,
+              "Species": 74,
+              "Endemic": 0,
+              "PctThreatened": "5.40%"
+            },
+            {
+              "Country": "Belarus",
+              "PctEndemic": 0.0,
+              "Species": 72,
+              "Endemic": 0,
+              "PctThreatened": "5.60%"
+            },
+            {
+              "Country": "Denmark",
+              "PctEndemic": 0.0,
+              "Species": 71,
+              "Endemic": 0,
+              "PctThreatened": "2.80%"
+            },
+            {
+              "Country": "Latvia",
+              "PctEndemic": 0.0,
+              "Species": 68,
+              "Endemic": 0,
+              "PctThreatened": "1.50%"
+            },
+            {
+              "Country": "Cuba",
+              "PctEndemic": 0.0,
+              "Species": 66,
+              "Endemic": 0,
+              "PctThreatened": "15.20%"
+            },
+            {
+              "Country": "Liechtenstein",
+              "PctEndemic": 0.0,
+              "Species": 65,
+              "Endemic": 0,
+              "PctThreatened": "0.00%"
+            },
+            {
+              "Country": "Lithuania",
+              "PctEndemic": 0.0,
+              "Species": 65,
+              "Endemic": 0,
+              "PctThreatened": "3.10%"
+            },
+            {
+              "Country": "Timor-Leste",
+              "PctEndemic": 1.5,
+              "Species": 65,
+              "Endemic": 1,
+              "PctThreatened": "7.70%"
+            },
+            {
+              "Country": "Estonia",
+              "PctEndemic": 0.0,
+              "Species": 64,
+              "Endemic": 0,
+              "PctThreatened": "1.60%"
+            },
+            {
+              "Country": "Finland",
+              "PctEndemic": 0.0,
+              "Species": 64,
+              "Endemic": 0,
+              "PctThreatened": "3.10%"
+            },
+            {
+              "Country": "Luxembourg",
+              "PctEndemic": 0.0,
+              "Species": 60,
+              "Endemic": 0,
+              "PctThreatened": "0.00%"
+            },
+            {
+              "Country": "Dominican Republic",
+              "PctEndemic": 0.0,
+              "Species": 59,
+              "Endemic": 0,
+              "PctThreatened": "11.90%"
+            },
+            {
+              "Country": "United Arab Emirates",
+              "PctEndemic": 0.0,
+              "Species": 58,
+              "Endemic": 0,
+              "PctThreatened": "13.80%"
+            },
+            {
+              "Country": "Haiti",
+              "PctEndemic": 12.5,
+              "Species": 56,
+              "Endemic": 7,
+              "PctThreatened": "7.10%"
+            },
+            {
+              "Country": "Ireland",
+              "PctEndemic": 0.0,
+              "Species": 53,
+              "Endemic": 0,
+              "PctThreatened": "9.40%"
+            },
+            {
+              "Country": "Jamaica",
+              "PctEndemic": 0.0,
+              "Species": 49,
+              "Endemic": 0,
+              "PctThreatened": "14.30%"
+            },
+            {
+              "Country": "New Zealand",
+              "PctEndemic": 8.2,
+              "Species": 49,
+              "Endemic": 4,
+              "PctThreatened": "18.40%"
+            },
+            {
+              "Country": "Samoa",
+              "PctEndemic": 4.3,
+              "Species": 47,
+              "Endemic": 2,
+              "PctThreatened": "4.30%"
+            },
+            {
+              "Country": "Kuwait",
+              "PctEndemic": 0.0,
+              "Species": 42,
+              "Endemic": 0,
+              "PctThreatened": "16.70%"
+            },
+            {
+              "Country": "Puerto Rico",
+              "PctEndemic": 2.4,
+              "Species": 41,
+              "Endemic": 1,
+              "PctThreatened": "4.90%"
+            },
+            {
+              "Country": "Grenada",
+              "PctEndemic": 2.4,
+              "Species": 41,
+              "Endemic": 1,
+              "PctThreatened": "7.30%"
+            },
+            {
+              "Country": "Cyprus",
+              "PctEndemic": 2.4,
+              "Species": 41,
+              "Endemic": 1,
+              "PctThreatened": "14.60%"
+            },
+            {
+              "Country": "Bahamas",
+              "PctEndemic": 2.5,
+              "Species": 40,
+              "Endemic": 1,
+              "PctThreatened": "12.50%"
+            },
+            {
+              "Country": "Qatar",
+              "PctEndemic": 0.0,
+              "Species": 37,
+              "Endemic": 0,
+              "PctThreatened": "10.80%"
+            },
+            {
+              "Country": "New Caledonia",
+              "PctEndemic": 16.2,
+              "Species": 37,
+              "Endemic": 6,
+              "PctThreatened": "24.30%"
+            },
+            {
+              "Country": "St. Vincent & Grenadines",
+              "PctEndemic": 5.6,
+              "Species": 36,
+              "Endemic": 2,
+              "PctThreatened": "5.60%"
+            },
+            {
+              "Country": "Comoros",
+              "PctEndemic": 11.1,
+              "Species": 36,
+              "Endemic": 4,
+              "PctThreatened": "13.90%"
+            },
+            {
+              "Country": "Andorra",
+              "PctEndemic": 0.0,
+              "Species": 34,
+              "Endemic": 0,
+              "PctThreatened": "5.90%"
+            },
+            {
+              "Country": "Antigua and Barbuda",
+              "PctEndemic": 0.0,
+              "Species": 34,
+              "Endemic": 0,
+              "PctThreatened": "5.90%"
+            },
+            {
+              "Country": "Saint Lucia",
+              "PctEndemic": 2.9,
+              "Species": 34,
+              "Endemic": 1,
+              "PctThreatened": "5.90%"
+            },
+            {
+              "Country": "Barbados",
+              "PctEndemic": 0.0,
+              "Species": 33,
+              "Endemic": 0,
+              "PctThreatened": "9.10%"
+            },
+            {
+              "Country": "Vanuatu",
+              "PctEndemic": 6.1,
+              "Species": 33,
+              "Endemic": 2,
+              "PctThreatened": "24.20%"
+            },
+            {
+              "Country": "Cayman Islands",
+              "PctEndemic": 59.4,
+              "Species": 32,
+              "Endemic": 19,
+              "PctThreatened": "3.10%"
+            },
+            {
+              "Country": "Aruba",
+              "PctEndemic": 0.2,
+              "Species": 32,
+              "Endemic": 0,
+              "PctThreatened": "6.30%"
+            },
+            {
+              "Country": "St. Kitts and Nevis",
+              "PctEndemic": 0.0,
+              "Species": 32,
+              "Endemic": 0,
+              "PctThreatened": "6.30%"
+            },
+            {
+              "Country": "Cabo Verde",
+              "PctEndemic": 0.0,
+              "Species": 32,
+              "Endemic": 0,
+              "PctThreatened": "12.50%"
+            },
+            {
+              "Country": "Virgin Islands (U.S.)",
+              "PctEndemic": 0.0,
+              "Species": 31,
+              "Endemic": 0,
+              "PctThreatened": "3.20%"
+            },
+            {
+              "Country": "Iceland",
+              "PctEndemic": 0.0,
+              "Species": 31,
+              "Endemic": 0,
+              "PctThreatened": "19.40%"
+            },
+            {
+              "Country": "Seychelles",
+              "PctEndemic": 9.7,
+              "Species": 31,
+              "Endemic": 3,
+              "PctThreatened": "19.40%"
+            },
+            {
+              "Country": "British Virgin Islands",
+              "PctEndemic": 0.0,
+              "Species": 30,
+              "Endemic": 0,
+              "PctThreatened": "3.30%"
+            },
+            {
+              "Country": "Bermuda",
+              "PctEndemic": 0.0,
+              "Species": 29,
+              "Endemic": 0,
+              "PctThreatened": "13.80%"
+            },
+            {
+              "Country": "Fiji",
+              "PctEndemic": 3.4,
+              "Species": 29,
+              "Endemic": 1,
+              "PctThreatened": "24.10%"
+            },
+            {
+              "Country": "Turks and Caicos",
+              "PctEndemic": 0.0,
+              "Species": 28,
+              "Endemic": 0,
+              "PctThreatened": "7.10%"
+            },
+            {
+              "Country": "Mauritius",
+              "PctEndemic": 7.1,
+              "Species": 28,
+              "Endemic": 2,
+              "PctThreatened": "25.00%"
+            },
+            {
+              "Country": "Maldives",
+              "PctEndemic": 0.0,
+              "Species": 26,
+              "Endemic": 0,
+              "PctThreatened": "7.70%"
+            },
+            {
+              "Country": "Bahrain",
+              "PctEndemic": 0.0,
+              "Species": 25,
+              "Endemic": 0,
+              "PctThreatened": "12.00%"
+            },
+            {
+              "Country": "Malta",
+              "PctEndemic": 0.0,
+              "Species": 24,
+              "Endemic": 0,
+              "PctThreatened": "8.30%"
+            },
+            {
+              "Country": "Palau",
+              "PctEndemic": 8.3,
+              "Species": 24,
+              "Endemic": 2,
+              "PctThreatened": "16.70%"
+            },
+            {
+              "Country": "Micronesia",
+              "PctEndemic": 12.5,
+              "Species": 24,
+              "Endemic": 3,
+              "PctThreatened": "20.80%"
+            },
+            {
+              "Country": "Guam",
+              "PctEndemic": 4.3,
+              "Species": 23,
+              "Endemic": 1,
+              "PctThreatened": "13.00%"
+            },
+            {
+              "Country": "Northern Mariana Islands",
+              "PctEndemic": 0.0,
+              "Species": 23,
+              "Endemic": 0,
+              "PctThreatened": "13.00%"
+            },
+            {
+              "Country": "Kiribati",
+              "PctEndemic": 0.0,
+              "Species": 22,
+              "Endemic": 0,
+              "PctThreatened": "9.10%"
+            },
+            {
+              "Country": "Tonga",
+              "PctEndemic": 0.0,
+              "Species": 22,
+              "Endemic": 0,
+              "PctThreatened": "9.10%"
+            },
+            {
+              "Country": "French Polynesia",
+              "PctEndemic": 0.0,
+              "Species": 21,
+              "Endemic": 0,
+              "PctThreatened": "0.00%"
+            },
+            {
+              "Country": "American Samoa",
+              "PctEndemic": 0.0,
+              "Species": 21,
+              "Endemic": 0,
+              "PctThreatened": "4.80%"
+            },
+            {
+              "Country": "Nauru",
+              "PctEndemic": 0.0,
+              "Species": 21,
+              "Endemic": 0,
+              "PctThreatened": "9.50%"
+            },
+            {
+              "Country": "Tuvalu",
+              "PctEndemic": 0.0,
+              "Species": 21,
+              "Endemic": 0,
+              "PctThreatened": "9.50%"
+            },
+            {
+              "Country": "Marshall Islands",
+              "PctEndemic": 0.0,
+              "Species": 20,
+              "Endemic": 0,
+              "PctThreatened": "5.00%"
+            }
+          ]
+        },
+        "key": "Country",
+        "fields": [
+          "PctEndemic",
+          "Species",
+          "Endemic",
+          "PctThreatened"
+        ]
+      }
+    }
+  ],
+  "mark": {
+    "type": "geoshape",
+    "stroke": "#ffffff",
+    "strokeWidth": 0.5
+  },
+  "encoding": {
+    "color": {
+      "field": "PctEndemic",
+      "type": "quantitative",
+      "title": "Percentage Endemic (%)",
+      "scale": {
+        "domain": [
+          0,
+          85
+        ],
+        "scheme": "yelloworangered"
+      },
+      "legend": {
+        "format": ".0f",
+        "labelExpr": "datum.value + '%'"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "properties.name",
+        "type": "nominal",
+        "title": "Country"
+      },
+      {
+        "field": "PctEndemic",
+        "type": "quantitative",
+        "title": "% endemic",
+        "format": ".1f"
+      },
+      {
+        "field": "Endemic",
+        "type": "quantitative",
+        "title": "Endemic species"
+      },
+      {
+        "field": "Species",
+        "type": "quantitative",
+        "title": "Total species"
+      },
+      {
+        "field": "PctThreatened",
+        "type": "quantitative",
+        "title": "% threatened",
+        "format": ".1f"
+      }
+    ]
+  }
+    }
+  ]
+  ,
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "legend": {
+      "orient": "bottom",
+      "gradientLength": 300
+    },
+    "title": {
+      "anchor": "start",
+      "fontSize": 20,
+      "subtitleFontSize": 13
+    }
+  }
+}

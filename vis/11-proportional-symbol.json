@@ -1,0 +1,109 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "rgba(247, 243, 234, 0.72)",
+  "width": "container",
+  "height": 500,
+  "projection": {
+    "type": "mercator",
+    "scale": 750,
+    "center": [134, -28]
+  },
+  "layer": [
+    {
+        "data": {
+        "url": "data/australia_states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#E6DFC8",
+        "stroke": null
+      }
+    },
+    {
+      "data": {
+        "url": "data/threatened-species-index.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.RegionCentroidLongitude >= 112 && datum.RegionCentroidLongitude <= 154 && datum.RegionCentroidLatitude >= -44 && datum.RegionCentroidLatitude <= -10"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "opacity": 0.8,
+        "stroke": "#5c1d1d",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "longitude": {
+          "field": "RegionCentroidLongitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "RegionCentroidLatitude",
+          "type": "quantitative"
+        },
+        "color": {
+          "aggregate": "count",
+          "type": "quantitative",
+          "title": "Record Count",
+          "scale": {
+            "scheme": "reds"
+          },
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 300,
+            "titleAnchor": "middle"
+          }
+        },
+        "size": {
+          "aggregate": "count",
+          "type": "quantitative",
+          "legend": null,
+          "scale": {
+            "range": [30, 350]
+          }
+        },
+        "tooltip": [
+          {"field": "Region", "type": "nominal", "title": "Region"},
+          {"aggregate": "count", "type": "quantitative", "title": "Total Records"}
+        ]
+      }
+    },
+    {
+        "data": {
+        "url": "data/australia_states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "stroke": "#ffffff",
+        "strokeWidth": 0.8,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "properties.name",
+            "type": "nominal",
+            "title": "State / territory"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}

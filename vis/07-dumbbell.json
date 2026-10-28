@@ -1,0 +1,53 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "rgba(247, 243, 234, 0.72)",
+  "width": "container",
+  "height": 260,
+  "data": {
+    "values": [
+      {"Family": "Macropodidae", "Nocturnal": 1.0, "Diurnal": 0.35},
+      {"Family": "Dasyuridae", "Nocturnal": 0.97, "Diurnal": 0.12},
+      {"Family": "Phalangeridae", "Nocturnal": 0.93, "Diurnal": 0.07},
+      {"Family": "Peramelidae", "Nocturnal": 1.0, "Diurnal": 0.0},
+      {"Family": "Phascolarctos / Vombatidae", "Nocturnal": 1.0, "Diurnal": 0.0},
+      {"Family": "Myrmecobiidae", "Nocturnal": 0.0, "Diurnal": 1.0},
+      {"Family": "Hypsiprymnodontidae", "Nocturnal": 0.0, "Diurnal": 1.0},
+      {"Family": "Ornithorhynchidae", "Nocturnal": 1.0, "Diurnal": 1.0}
+    ]
+  },
+  "layer": [
+    {
+      "mark": {"type": "rule", "color": "#a0a0a0", "strokeWidth": 2},
+      "encoding": {
+        "y": {
+          "field": "Family",
+          "type": "nominal",
+          "sort": {"field": "Diurnal", "order": "ascending"},
+          "axis": {"title": null}
+        },
+        "x": {
+          "field": "Nocturnal",
+          "type": "quantitative",
+          "scale": {"domain": [0, 1]},
+          "axis": {"title": "Proportion of Species"}
+        },
+        "x2": {"field": "Diurnal"}
+      }
+    },
+    {
+      "transform": [
+        {"fold": ["Nocturnal", "Diurnal"], "as": ["Activity", "Proportion"]}
+      ],
+      "mark": {"type": "point", "filled": true, "size": 120},
+      "encoding": {
+        "y": {"field": "Family", "type": "nominal", "sort": {"field": "Diurnal", "order": "ascending"}},
+        "x": {"field": "Proportion", "type": "quantitative", "scale": {"domain": [0, 1]}},
+        "color": {
+          "field": "Activity",
+          "type": "nominal",
+          "scale": {"domain": ["Nocturnal", "Diurnal"], "range": ["#034EB5", "#C48213"]}
+        }
+      }
+    }
+  ]
+}

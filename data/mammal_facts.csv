@@ -1,0 +1,26 @@
+# Source: https://bie.ala.org.au/species/https%3A//biodiversity.org.au/afd/taxa/e9e7db31-04df-41fb-bd8d-e0b0f3c332d6#overview 
+fact_id,topic,fact,value,unit,source_page
+F1,Definition,"Mammals are characterized by milk-producing mammary glands, neocortex, fur/hair, and three middle ear bones",,,"1"
+F2,Diversity,"About 6,400 described species; grouped into 27 orders",6400,species,1
+F3,Diversity,"Mammal species identified in 2006",5416,species,4
+F4,Diversity,"IUCN Global Mammal Assessment counted in 2008",5488,species,4
+F5,Diversity,"Recognized mammal species in 2018, including 96 recently extinct",6495,species,4
+F6,Evolution,"Mammals originated from cynodonts during the Late Triassic to Early Jurassic",,,"2"
+F7,Evolution,"Mammals have been dominant terrestrial animal group from about 66 million years ago to present",66,million years ago,2
+F8,Size,"Smallest mammal: bumblebee bat",30-40,millimeters,2
+F9,Size,"Largest mammal: blue whale",30,meters,2
+F10,Lifespan,"Shortest listed lifespan: shrew",2,years,2
+F11,Lifespan,"Longest listed lifespan: bowhead whale",211,years,2
+F12,Reproduction,"All modern mammals give birth to live young except five monotreme species, which lay eggs",5,species,2
+F13,Reproduction,"Most species-rich group is viviparous placental mammals",,,"2"
+F14,Classification,"No classification system is universally accepted",,,"4"
+F15,Classification,"Most mammals, including the six most species-rich orders, belong to the placental group",,,"4"
+F16,Molecular,"Three major placental lineages: Afrotheria, Xenarthra, Boreoeutheria",,,"5"
+F17,Molecular,"Estimated divergence times among three placental groups: 105-120 million years ago",105-120,million years ago,6
+F18,Anatomy,"Mammalian heart has four chambers",4,chambers,15
+F19,Anatomy,"Hair is a definitive characteristic of mammals",,,"17"
+F20,Locomotion,"Bats are the only mammals that can truly fly",,,"26"
+F21,Social,"Eusocial behavior demonstrated in naked mole-rat and Damaraland mole-rat",2,species,33
+F22,Biomass,"Livestock make up 62% of world mammal biomass; humans 34%; wild mammals 4%",,,"36"
+F23,Threats,"Wild mammal biomass declined by 82% since beginning of human civilization",82,percent,38
+F24,Threats,"Decline and extinction of many mammals primarily driven by human poaching and habitat destruction/deforestation",,,"3"

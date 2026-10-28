@@ -1,0 +1,132 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "rgba(247, 243, 234, 0.72)",
+  "width": "container",
+  "height": 300,
+  "data": {
+    "values": [
+      {"Species": "Mammal", "Category": "Conservation Dependent", "Count": 0},
+      {"Species": "Mammal", "Category": "Vulnerable", "Count": 58},
+      {"Species": "Mammal", "Category": "Endangered", "Count": 39},
+      {"Species": "Mammal", "Category": "Critically Endangered", "Count": 10},
+      
+      {"Species": "Bird", "Category": "Conservation Dependent", "Count": 0},
+      {"Species": "Bird", "Category": "Vulnerable", "Count": 63},
+      {"Species": "Bird", "Category": "Endangered", "Count": 55},
+      {"Species": "Bird", "Category": "Critically Endangered", "Count": 17},
+
+      {"Species": "Reptile", "Category": "Conservation Dependent", "Count": 0},
+      {"Species": "Reptile", "Category": "Vulnerable", "Count": 31},
+      {"Species": "Reptile", "Category": "Endangered", "Count": 20},
+      {"Species": "Reptile", "Category": "Critically Endangered", "Count": 10},
+
+      {"Species": "Amphibian", "Category": "Conservation Dependent", "Count": 0},
+      {"Species": "Amphibian", "Category": "Vulnerable", "Count": 12},
+      {"Species": "Amphibian", "Category": "Endangered", "Count": 8},
+      {"Species": "Amphibian", "Category": "Critically Endangered", "Count": 15},
+
+      {"Species": "Fish", "Category": "Conservation Dependent", "Count": 8},
+      {"Species": "Fish", "Category": "Vulnerable", "Count": 24},
+      {"Species": "Fish", "Category": "Endangered", "Count": 20},
+      {"Species": "Fish", "Category": "Critically Endangered", "Count": 7},
+
+      {"Species": "Other species", "Category": "Conservation Dependent", "Count": 0},
+      {"Species": "Other species", "Category": "Vulnerable", "Count": 13},
+      {"Species": "Other species", "Category": "Endangered", "Count": 23},
+      {"Species": "Other species", "Category": "Critically Endangered", "Count": 30}
+    ]
+  },"transform": [
+    {
+      "calculate": "datum.Species === 'Mammal' ? -12 : (datum.Species === 'Reptile' ? 12 : 0)",
+      "as": "labelDy"
+    }
+  ],"config": {
+    "view": {"stroke": null},
+    "axis": { "domain": false },
+    "axisX": {
+      "grid": true,
+      "gridColor": "#334155",
+      "gridWidth": 2,
+      "gridOpacity": 1.0,
+      "tickBand": "extent"
+    },
+    "axisY": {
+      "grid": true,
+      "gridColor": "#E2E8F0",
+      "gridWidth": 1,
+      "gridDash": [3, 3]
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "line", "point": {"size": 50, "filled": true}},
+      "encoding": {
+        "x": {
+          "field": "Category",
+          "type": "ordinal",
+          "title": null,
+          "sort": ["Conservation Dependent", "Vulnerable", "Endangered", "Critically Endangered"],
+          "axis": {
+            "orient": "top",
+            "labelFontSize": 12,
+            "labelFontWeight": "bold",
+            "labelPadding": 10,
+            "labelAngle": 0,
+            "labelExpr": "split(datum.label, ' ')"
+          }
+        },
+        "y": {
+          "field": "Count",
+          "type": "quantitative",
+          "title": "Number of Listed Species (2020)",
+          "scale": {"domain": [0, 70]}
+        },
+        "color": {
+          "field": "Species",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": ["Mammal", "Bird", "Reptile", "Amphibian", "Fish", "Other species"],
+            "range": ["#E63946", "#94A3B8", "#94A3B8", "#94A3B8", "#94A3B8", "#94A3B8"]
+          }
+        },
+        "strokeWidth": {
+          "condition": {"test": "datum.Species === 'Mammal'", "value": 4},
+          "value": 1.8
+        },
+        "opacity": {
+          "condition": {"test": "datum.Species === 'Mammal'", "value": 1.0},
+          "value": 0.6
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 10,
+        "fontSize": 11,
+        "dy": {"expr": "datum.Species === 'Mammal' ? -10 : (datum.Species === 'Reptile' ? 0 : 0)"},
+        "fontWeight": {"expr": "datum.Species === 'Mammal' ? 'bold' : 'normal'"}
+      },
+      "encoding": {
+        "x": {
+          "field": "Category",
+          "type": "ordinal",
+          "sort": ["Conservation Dependent", "Vulnerable", "Endangered", "Critically Endangered"]
+        },
+        "y": {"field": "Count", "type": "quantitative"},
+        "text": {"field": "Species", "type": "nominal"},
+        "color": {
+          "condition": {"test": "datum.Species === 'Mammal'", "value": "#E63946"},
+          "value": "#475569"
+        },
+        "opacity": {
+          "condition": {"test": "datum.Category === 'Critically Endangered'", "value": 1},
+          "value": 0
+        }
+      }
+    }
+  ]
+}
